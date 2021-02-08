@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
+    #region Singleton
+
+    public static Click instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     [SerializeField] private LayerMask layerTerrain;
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private LayerMask layerCopain;
@@ -44,7 +54,7 @@ public class Click : MonoBehaviour
         {
             foreach (GameObject element in listeUniteSelectionne)
             {
-                element.GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_hit.transform.gameObject, 3f);
+                element.GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_hit.transform.gameObject, element.GetComponentInChildren<ZoneDectection>().GetRadius());
             }
         }
 
@@ -53,5 +63,10 @@ public class Click : MonoBehaviour
         {
             deplacer(_hit.point);
         }
+    }
+
+    public LayerMask GetLayerEnnemi()
+    {
+        return layerEnnemi;
     }
 }

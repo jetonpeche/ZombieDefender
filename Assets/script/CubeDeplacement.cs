@@ -19,7 +19,6 @@ public class CubeDeplacement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(deplacerAporterCible)
@@ -29,15 +28,17 @@ public class CubeDeplacement : MonoBehaviour
             {
                 agent.SetDestination(cible.transform.position);
             }    
-            // lancer l'attaque sur l'enemi
+            // lancer l'attaque sur l'ennemi
             else if(Vector3.Distance(transform.position, cible.transform.position) <= porter)
             {
                 deplacerAporterCible = false;
-                agent.SetDestination(transform.position);
-
                 zoneDectection.BouttonActiverCibleAuto(false);
 
-                cubeAttaque.cible = cible;
+                agent.SetDestination(transform.position);
+
+                cubeAttaque.cibleVie = cible.GetComponent<CubeVie>();
+
+                cible = null;
 
                 if (!cubeAttaque.IsInvoking("Attaquer"))
                     cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);
@@ -47,7 +48,6 @@ public class CubeDeplacement : MonoBehaviour
 
     public void Deplacer(Vector3 _hit)
     {
-        zoneDectection.BouttonActiverCibleAuto(true);
         agent.SetDestination(_hit);
     }
 

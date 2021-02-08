@@ -19,25 +19,34 @@ public class ZoneDectection : MonoBehaviour
             CancelInvoke("Detection");
     }
 
-    // Detection automatique et attaque automatique
+    // Detection automatique et declanche attaque
     private void Detection()
     {
         Collider[] _tabCol = Physics.OverlapSphere(transform.position, radius, layer);
 
+        // ennemis a porter
         if (_tabCol.Length > 0)
         {
             // evite de changer de cible quand une nouvelle est a porte
-            if(cubeAttaque.cible == null)
-                cubeAttaque.cible = _tabCol[0].gameObject;
+            if(cubeAttaque.cibleVie == null)
+                cubeAttaque.cibleVie = _tabCol[0].gameObject.GetComponent<CubeVie>();
 
-            if (!cubeAttaque.IsInvoking("Attaquer"))
-                cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);
+            if(!cubeAttaque.IsInvoking("Attaquer"))
+                cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);     
         }
         else
+        {
             cubeAttaque.CancelInvoke("Attaquer");
+            cubeAttaque.cibleVie = null;
+        }
     }
 
-    private void OnDrawGizmos()
+    public float GetRadius()
+    {
+        return radius;
+    }
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
