@@ -18,10 +18,8 @@ public class Click : MonoBehaviour
     [SerializeField] private LayerMask layerCopain;
 
     [SerializeField] private List<GameObject> listeUniteSelectionne = null;
-    [SerializeField] private GameObject uniteSelectionne = null;
 
-    private delegate void Deplacer(Vector3 _deplacement);
-    private Deplacer deplacer;
+    private bool selectionMultiple;
 
     private void Start()
     {
@@ -34,52 +32,72 @@ public class Click : MonoBehaviour
 
         RaycastHit _hit;
 
-        // selectionner unite selectionne
+        // selectionner unitée(s)
         if(Input.GetMouseButtonDown(0) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerCopain))
         {
-            if(listeUniteSelectionne.Count > 0)
-                listeUniteSelectionne[0].GetComponent<CubeClick>().Clack();
-
-            listeUniteSelectionne.Clear();
-            deplacer = null;
+            if(!selectionMultiple)
+            {
+                if (listeUniteSelectionne.Count > 0)
+                {
+                    foreach  (GameObject _obj in listeUniteSelectionne)
+                    {
+                        _obj.GetComponent<CubeClick>().Clack();
+                    }
+                }
+                    
+                listeUniteSelectionne.Clear();
+            }
 
             _hit.transform.GetComponent<CubeClick>().Click();
-
             listeUniteSelectionne.Add(_hit.transform.gameObject);
-            deplacer += _hit.transform.GetComponent<CubeDeplacement>().Deplacer;
         }
 
         // Attaquer cible
         else if (Input.GetMouseButtonDown(1) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerEnnemi))
         {
-            foreach (GameObject element in listeUniteSelectionne)
+            foreach (GameObject _item in listeUniteSelectionne)
             {
-                element.GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_hit.transform.gameObject, element.GetComponentInChildren<ZoneDectection>().GetRadius());
+                _item.GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_hit.transform.gameObject, _item.GetComponentInChildren<ZoneDectection>().GetRadius());
             }
         }
 
         // deplacement
         else if(Input.GetMouseButtonDown(1) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerTerrain))
         {
-            deplacer(_hit.point);
+            foreach (GameObject _item in listeUniteSelectionne)
+            {
+                _item.GetComponent<CubeDeplacement>().Deplacer(_hit.point);
+            }
         }
 
         // voir la bar de vie des unités selectionné
         else if(Input.GetKeyDown(KeyCode.LeftControl))
         {
-            foreach (GameObject item in listeUniteSelectionne)
+            foreach (GameObject _item in listeUniteSelectionne)
             {
-                item.GetComponent<CubeClick>().BouttonMontrerBarVie(true);
+                _item.GetComponent<CubeClick>().BouttonMontrerBarVie(true);
             }
         }
 
         // cacher la bar de vie
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
-            foreach (GameObject item in listeUniteSelectionne)
+            foreach (GameObject _item in listeUniteSelectionne)
             {
-                item.GetComponent<CubeClick>().BouttonMontrerBarVie(false);
+                _item.GetComponent<CubeClick>().BouttonMontrerBarVie(false);
             }
+        }
+
+        // selectionner plusieurs unité
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            selectionMultiple = true;
+            Debug.Log("shift");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            selectionMultiple = false;
+            Debug.Log("plus shift");
         }
     }
 }
