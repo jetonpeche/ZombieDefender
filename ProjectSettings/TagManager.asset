@@ -7,6 +7,8 @@ TagManager:
   - cube
   - ennemi
   - mur
+  - copain
+  - Objectif
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - terrain
   - ennemi
   - copain
-  - 
+  - Objectif
   - 
   - 
   - 

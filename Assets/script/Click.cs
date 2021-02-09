@@ -100,4 +100,9 @@ public class Click : MonoBehaviour
             Debug.Log("plus shift");
         }
     }
+
+    public void UniteMorte(GameObject _obj)
+    {
+        listeUniteSelectionne.Remove(_obj);
+    }
 }

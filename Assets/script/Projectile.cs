@@ -4,9 +4,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private int degats;
 
-    private string tag;
+    private string tagCible;
     private Vector3 posDepart;
     private float distance;
+    private GameObject ennemi;
 
     private void Update()
     {
@@ -15,18 +16,29 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Initialiser(Vector3 _posDepart, float _distance, string _tag)
+    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, GameObject _ennemi = null)
     {
         posDepart = _posDepart;
         distance = _distance;
-        tag = _tag;
+        tagCible = _tagCible;
+        ennemi = _ennemi;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(tag))
+        if (other.gameObject.CompareTag(tagCible))
         {
-            other.GetComponent<CubeVie>().SubirDegat(degats);
+            // ennemi
+            if(other.GetComponent<CubeAttaque>())
+            {
+                other.GetComponent<CubeVie>().SubirDegat(degats, ennemi);
+            }
+            // objectif
+            else
+            {
+                other.GetComponent<CubeVie>().SubirDegatObjectif(degats);
+            }
+            
             Destroy(gameObject);
         }   
         else if(other.CompareTag("mur"))

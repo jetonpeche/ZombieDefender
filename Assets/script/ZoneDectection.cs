@@ -5,6 +5,7 @@ public class ZoneDectection : MonoBehaviour
     [SerializeField] private CubeAttaque cubeAttaque;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float radius;
+    [SerializeField] [Header("remplir sur les ennemis")] private string tagEnnemi;
 
     private void Start()
     {
@@ -28,22 +29,35 @@ public class ZoneDectection : MonoBehaviour
         if (_tabCol.Length > 0)
         {
             // evite de changer de cible quand une nouvelle est a porte
-            if(cubeAttaque.cibleVie == null)
-                cubeAttaque.cibleVie = _tabCol[0].gameObject.GetComponent<CubeVie>();
+            if (cubeAttaque.cible == null)
+                cubeAttaque.cible = _tabCol[0].transform;
 
-            if(!cubeAttaque.IsInvoking("Attaquer"))
-                cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);     
+            // script sur ennemi
+            if (gameObject.transform.parent.transform.tag == tagEnnemi)
+                transform.parent.GetComponent<CubeDeplacementEnnemi>().StopDeplacement();
+
+            if (!cubeAttaque.IsInvoking("Attaquer"))
+                cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);
         }
         else
         {
             cubeAttaque.CancelInvoke("Attaquer");
-            cubeAttaque.cibleVie = null;
+            cubeAttaque.cible = null;
+
+            // script sur ennemi
+            if (gameObject.transform.parent.transform.tag == tagEnnemi)
+                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();             
         }
     }
 
     public float GetRadius()
     {
         return radius;
+    }
+
+    public string GetTagEnnemi()
+    {
+        return tagEnnemi;
     }
 
     private void OnDrawGizmosSelected()

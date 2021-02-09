@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 748888958294566757}
   - component: {fileID: 4647699608067510483}
   - component: {fileID: 8027682474693847850}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: yeux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 32266166}
   m_Layer: 10
   m_Name: copain
-  m_TagString: Untagged
+  m_TagString: copain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -914,6 +914,7 @@ MonoBehaviour:
     type: 3}
   canonArme: {fileID: 9184340311343890220}
   vitesseProjectile: 10
+  tagCible: ennemi
 --- !u!114 &8554713762319746824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,3 +1018,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   radius: 5
+  tagEnnemi: 

@@ -36,7 +36,7 @@ public class CubeDeplacement : MonoBehaviour
 
                 agent.SetDestination(transform.position);
 
-                cubeAttaque.cibleVie = cible.GetComponent<CubeVie>();
+                cubeAttaque.cible = cible.transform;
 
                 cible = null;
 

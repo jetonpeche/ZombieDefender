@@ -3,11 +3,12 @@
 public class CubeAttaque : MonoBehaviour
 {
 
-    [HideInInspector] public CubeVie cibleVie;
+    public Transform cible;
     [SerializeField] private ZoneDectection zoneDectection;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform canonArme;
     [SerializeField] private int vitesseProjectile;
+    [SerializeField] private string tagCible;
 
     private float porter;
 
@@ -18,8 +19,8 @@ public class CubeAttaque : MonoBehaviour
 
     private void Update()
     {
-        if(cibleVie != null)
-            transform.LookAt(cibleVie.gameObject.transform);     
+        if(cible != null)
+            transform.LookAt(cible);     
     }
 
     public void Attaquer()
@@ -28,26 +29,34 @@ public class CubeAttaque : MonoBehaviour
         RaycastHit _hit;
         if (Physics.Raycast(transform.position, transform.forward, out _hit, porter))
         {
-            if (_hit.transform.gameObject.tag == "ennemi")
+            if (_hit.transform.gameObject.tag == tagCible)
             {
                 GameObject _obj = Instantiate(projectile, canonArme.position, Quaternion.identity);
 
-                _obj.GetComponent<Projectile>().Initialiser(transform.position, porter, "ennemi");
+                _obj.GetComponent<Projectile>().Initialiser(transform.position, porter, tagCible, GetComponent<CubeDeplacementEnnemi>() ? gameObject : null);
                 _obj.GetComponent<Rigidbody>().velocity = canonArme.forward * vitesseProjectile;
             }
             else
-                cibleVie = null;
+                cible = null;
         }
         else
         {
-            cibleVie = null;
+            cible = null;
             zoneDectection.BouttonActiverCibleAuto(true);
+        }
+    }
+
+    public void Repliquer(GameObject _cible)
+    {
+        if(cible == null && GetComponent<CubeDeplacement>())
+        {
+            GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_cible, porter);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, transform.forward * 5);
+        Gizmos.DrawRay(transform.position, transform.forward * porter);
     }
 }
