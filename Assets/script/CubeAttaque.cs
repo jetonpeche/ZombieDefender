@@ -10,11 +10,9 @@ public class CubeAttaque : MonoBehaviour
     [SerializeField] private int vitesseProjectile;
 
     private float porter;
-    private LayerMask layer;
 
     private void Start()
     {
-        layer = Click.instance.GetLayerEnnemi();
         porter = zoneDectection.GetRadius();
     }
 
@@ -26,12 +24,19 @@ public class CubeAttaque : MonoBehaviour
 
     public void Attaquer()
     {
-        if (Physics.Raycast(transform.position, transform.forward, porter, layer) && cibleVie.EstEnVie())
+        // permet de ne pas tirer sur un mur avec un ennemi derriere
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, transform.forward, out _hit, porter))
         {
-            GameObject _obj = Instantiate(projectile, canonArme.position, Quaternion.identity);
+            if (_hit.transform.gameObject.tag == "ennemi")
+            {
+                GameObject _obj = Instantiate(projectile, canonArme.position, Quaternion.identity);
 
-            _obj.GetComponent<Projectile>().Initialiser(transform.position, porter, "ennemi");
-            _obj.GetComponent<Rigidbody>().velocity = canonArme.forward * vitesseProjectile;
+                _obj.GetComponent<Projectile>().Initialiser(transform.position, porter, "ennemi");
+                _obj.GetComponent<Rigidbody>().velocity = canonArme.forward * vitesseProjectile;
+            }
+            else
+                cibleVie = null;
         }
         else
         {

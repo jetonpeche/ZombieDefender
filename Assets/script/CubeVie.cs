@@ -2,17 +2,19 @@
 
 public class CubeVie : MonoBehaviour
 {
-    [SerializeField] private int vieMax;
+    [SerializeField] private CubeBarVie cubeBarVie;
+
     private int vie;
 
     void Start()
     {
-        vie = vieMax;
+        vie = cubeBarVie.GetVie();
     }
 
     public void SubirDegat(int _degats)
     {
         vie -= _degats;
+        cubeBarVie.SetVieSlider(vie);
 
         if(!EstEnVie())
         {
@@ -26,11 +28,12 @@ public class CubeVie : MonoBehaviour
         return vie > 0;
     }
 
-    public void Mort()
+    private void Mort()
     {
         GetComponent<MeshRenderer>().material.color = Color.black;
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         gameObject.layer = 0;
+        gameObject.tag = "Untagged";
 
         Debug.Log("Mort !");
     }

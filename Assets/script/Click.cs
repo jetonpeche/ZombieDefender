@@ -63,10 +63,23 @@ public class Click : MonoBehaviour
         {
             deplacer(_hit.point);
         }
-    }
 
-    public LayerMask GetLayerEnnemi()
-    {
-        return layerEnnemi;
+        // voir la bar de vie des unités selectionné
+        else if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            foreach (GameObject item in listeUniteSelectionne)
+            {
+                item.GetComponent<CubeClick>().BouttonMontrerBarVie(true);
+            }
+        }
+
+        // cacher la bar de vie
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            foreach (GameObject item in listeUniteSelectionne)
+            {
+                item.GetComponent<CubeClick>().BouttonMontrerBarVie(false);
+            }
+        }
     }
 }

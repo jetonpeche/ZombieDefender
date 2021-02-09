@@ -29,5 +29,9 @@ public class Projectile : MonoBehaviour
             other.GetComponent<CubeVie>().SubirDegat(degats);
             Destroy(gameObject);
         }   
+        else if(other.CompareTag("mur"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cube
   - ennemi
+  - mur
   layers:
   - Default
   - TransparentFX
