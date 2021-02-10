@@ -2,8 +2,8 @@
 
 public class CubeClick : MonoBehaviour
 {
-    [SerializeField] GameObject canvas;
-     
+    [SerializeField] private GameObject canvas;
+
     public void OnMouseOver()
     {
         BouttonMontrerBarVie(true);

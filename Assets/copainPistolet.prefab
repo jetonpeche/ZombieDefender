@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 32266167}
   - component: {fileID: 32266166}
   m_Layer: 10
-  m_Name: copain
+  m_Name: copainPistolet
   m_TagString: copain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,13 +908,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668d710c4de4c048814f68d357362f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cibleVie: {fileID: 0}
+  cible: {fileID: 0}
+  layerEnnemi:
+    serializedVersion: 2
+    m_Bits: 512
   zoneDectection: {fileID: 8554713763797928781}
-  projectile: {fileID: 6754003487658184802, guid: c7a8257f7363e564eba7598e531a47bc,
+  projectile: {fileID: 6754003487658184802, guid: 746ae5d0ff59a49439c43fe12191dc32,
     type: 3}
   canonArme: {fileID: 9184340311343890220}
   vitesseProjectile: 10
-  tagCible: ennemi
+  tagCibleProjectile: ennemi
+  degats: 20
 --- !u!114 &8554713762319746824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,3 +1023,4 @@ MonoBehaviour:
     m_Bits: 512
   radius: 5
   tagEnnemi: 
+  _tabCol: []

@@ -2,8 +2,7 @@
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private int degats;
-
+    private int degats;
     private string tagCible;
     private Vector3 posDepart;
     private float distance;
@@ -16,12 +15,13 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, GameObject _ennemi = null)
+    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi)
     {
         posDepart = _posDepart;
         distance = _distance;
         tagCible = _tagCible;
         ennemi = _ennemi;
+        degats = _degats;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         {
             // ennemi
             if(other.GetComponent<CubeAttaque>())
-            {
+            { 
                 other.GetComponent<CubeVie>().SubirDegat(degats, ennemi);
             }
             // objectif

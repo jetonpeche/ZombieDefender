@@ -7,6 +7,7 @@ public class ZoneDectection : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] [Header("remplir sur les ennemis")] private string tagEnnemi;
 
+    public Collider[] _tabCol;
     private void Start()
     {
         BouttonActiverCibleAuto(true);
@@ -23,7 +24,7 @@ public class ZoneDectection : MonoBehaviour
     // Detection automatique et declanche attaque
     private void Detection()
     {
-        Collider[] _tabCol = Physics.OverlapSphere(transform.position, radius, layer);
+        _tabCol = Physics.OverlapSphere(transform.position, radius, layer);
 
         // ennemis a porter
         if (_tabCol.Length > 0)

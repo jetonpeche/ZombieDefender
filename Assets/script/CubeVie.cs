@@ -23,9 +23,9 @@ public class CubeVie : MonoBehaviour
             Mort();
         }
 
-        // se defendre
-        else if(_cible != null)        
-            GetComponent<CubeAttaque>().Repliquer(_cible);
+        // se defendre contre IA ennemi
+        if(_cible.GetComponent<CubeDeplacementEnnemi>())
+            GetComponent<CubeAttaque>().Repliquer(_cible);         
     }
 
     public void SubirDegatObjectif(int _degats)
@@ -49,16 +49,20 @@ public class CubeVie : MonoBehaviour
         {
             gameObject.GetComponent<CubeClick>().Clack();
             Click.instance.UniteMorte(gameObject);
+            Destroy(GetComponent<CubeDeplacement>());
         }
+        else
+        {
+            Destroy(GetComponent<CubeDeplacementEnnemi>());
+        }   
 
         GetComponent<Collider>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
 
         Destroy(GetComponent<CubeAttaque>());
         Destroy(GetComponentInChildren<ZoneDectection>());
-        Destroy(GetComponent<CubeDeplacement>());
 
-        gameObject.layer = 0;
+        gameObject.layer = 2;
         gameObject.tag = "Untagged";
 
         Destroy(gameObject, 5);

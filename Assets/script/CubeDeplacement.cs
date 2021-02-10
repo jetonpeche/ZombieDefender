@@ -8,13 +8,11 @@ public class CubeDeplacement : MonoBehaviour
     [SerializeField] private ZoneDectection zoneDectection;
 
     private NavMeshAgent agent;
-
     private GameObject cible;
     private float porter;
     private bool deplacerAporterCible;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
