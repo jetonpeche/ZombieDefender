@@ -1383,7 +1383,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 8001121427216746034}
-  projectile: {fileID: 6754003487658184802, guid: c7a8257f7363e564eba7598e531a47bc,
+  projectile: {fileID: 6754003487658184802, guid: 746ae5d0ff59a49439c43fe12191dc32,
     type: 3}
   canonArme: {fileID: 7405210289180029523}
   vitesseProjectile: 10
@@ -1403,7 +1403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeAttaque: {fileID: 8001121426551704182}
   zoneDectection: {fileID: 8001121427216746034}
-  agent: {fileID: 0}
 --- !u!114 &1851475723310619234
 MonoBehaviour:
   m_ObjectHideFlags: 0

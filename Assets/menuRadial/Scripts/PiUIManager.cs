@@ -6,15 +6,20 @@ public class PiUIManager : MonoBehaviour
 {
     public NameMenuPair[] nameMenu;
 
-    private Dictionary<string, PiUI> dict = new Dictionary<string, PiUI>( );
+    private Dictionary<string, PiUI> dict = new Dictionary<string, PiUI>();
 
     private void Awake()
     {
-       foreach(NameMenuPair pair in nameMenu)
+        print("There are: " + nameMenu.Length + " menus");
+
+
+        foreach (NameMenuPair pair in nameMenu)
         {
             dict.Add(pair.name, pair.menu);
         }
-		transform.localScale = new Vector3(1f / Screen.width, 1f / Screen.height);
+
+        print("There are: " + dict.Count + " menu in dictionary");
+        transform.localScale = new Vector3(1f / Screen.width, 1f / Screen.height);
 		transform.position = Vector2.zero;
     }
 
@@ -58,7 +63,7 @@ public class PiUIManager : MonoBehaviour
             return dict[menuName];
         }
         else{
-            NoMenuOfThatName( );
+            NoMenuOfThatName();
             return null;
         }
     }

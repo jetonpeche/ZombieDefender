@@ -45,11 +45,14 @@ public class CubeVie : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = Color.black;
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
+        // unite joueur
         if(GetComponent<CubeDeplacement>())
         {
             gameObject.GetComponent<CubeClick>().Clack();
             Click.instance.UniteMorte(gameObject);
             Destroy(GetComponent<CubeDeplacement>());
+
+            Inventaire.instance.ReduireUniteJoueur();
         }
         else
         {

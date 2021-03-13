@@ -92,12 +92,10 @@ public class Click : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             selectionMultiple = true;
-            Debug.Log("shift");
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             selectionMultiple = false;
-            Debug.Log("plus shift");
         }
     }
 
