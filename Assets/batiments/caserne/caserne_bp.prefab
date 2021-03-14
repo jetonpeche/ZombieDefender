@@ -527,10 +527,9 @@ GameObject:
   - component: {fileID: 8713962940449595265}
   - component: {fileID: 1724594160}
   - component: {fileID: 515208544097733082}
-  - component: {fileID: 1724594161}
-  - component: {fileID: 467915912}
+  - component: {fileID: 3303601811626823281}
   m_Layer: 0
-  m_Name: caserne
+  m_Name: caserne_bp
   m_TagString: mur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +581,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 200, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &1724594161
+--- !u!114 &3303601811626823281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,22 +590,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7420470155264270294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5f0ac1113352b4bacec8f72a810719, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c638e0b4324a674580ed7bb9c0300b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piUi: {fileID: 0}
-  nomMenu: Menu caserne
---- !u!114 &467915912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420470155264270294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff65656f38a9900468470e2a93662f77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posSpawn: {fileID: 1106403740}
-  posAatteindre: {fileID: 1592199515}
+  terrain:
+    serializedVersion: 2
+    m_Bits: 256
+  prefab: {fileID: 7420470155264270294, guid: 07e893e0b2f147249810c283267c37ee, type: 3}

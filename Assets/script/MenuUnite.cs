@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class MenuUnite : MonoBehaviour
 {
-    [SerializeField] private PiUIManager piUi = null;
-    [SerializeField] private PiUI menu = null;
+    [SerializeField] private PiUIManager piUi = null; 
+    [SerializeField] private string nomMenu = null;
 
+    private PiUI menu;
     private bool menuOuvert = false;
+
+    private void Awake()
+    {
+        piUi = GameObject.Find("Pi UI Canvas").GetComponent<PiUIManager>();
+        menu = piUi.GetPiUIOf(nomMenu);
+    }
 
     private void OnMouseDown()
     {

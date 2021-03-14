@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Inventaire : MonoBehaviour
 {
-    #region
+    #region singletoon
     public static Inventaire instance;
 
     private void Awake()
