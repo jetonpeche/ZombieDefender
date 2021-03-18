@@ -528,9 +528,9 @@ GameObject:
   - component: {fileID: 1724594160}
   - component: {fileID: 515208544097733082}
   - component: {fileID: 1724594161}
-  - component: {fileID: 467915912}
+  - component: {fileID: -6451467045980245252}
   m_Layer: 0
-  m_Name: caserne
+  m_Name: Caserne
   m_TagString: mur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   piUi: {fileID: 0}
   nomMenu: Menu caserne
---- !u!114 &467915912
+--- !u!114 &-6451467045980245252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -605,8 +605,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7420470155264270294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff65656f38a9900468470e2a93662f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 8550f7ae73d5b514c9cc68519e304859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posSpawn: {fileID: 1106403740}
-  posAatteindre: {fileID: 1592199515}
+  posDepart: {fileID: 1106403740}
+  posArrive: {fileID: 1592199515}

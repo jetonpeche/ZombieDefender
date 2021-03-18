@@ -2,15 +2,34 @@
 
 public class CreerUnite : MonoBehaviour
 {
-    [SerializeField] private Transform posSpawn;
-    [SerializeField] private Transform posAatteindre;
+    #region Singletoon
+    public static CreerUnite instance;
 
-    public void InstancierUnite(GameObject _unite)
+    private void Awake()
     {
-        if(Inventaire.instance.NombreUniteMaxAtteint())
+        instance = this;
+    }
+    #endregion
+
+    [Header("Marines")]
+    public GameObject unitePistolet, uniteSniper;
+
+    public void InstancierUnitePistolet(Vector3 _posDepart, Vector3 _posArrive)
+    {
+        Instancier(unitePistolet, _posDepart, _posArrive);
+    }
+
+    public void InstancierUniteSniper(Vector3 _posDepart, Vector3 _posArrive)
+    {
+        Instancier(uniteSniper, _posDepart, _posArrive);
+    }
+
+    private void Instancier(GameObject _unite, Vector3 _posDepart, Vector3 _posArrive)
+    {
+        if (Inventaire.instance.NombreUniteMaxAtteint())
         {
-            GameObject _obj = Instantiate(_unite, posSpawn.position, Quaternion.identity);
-            _obj.GetComponent<CubeDeplacement>().Deplacer(posAatteindre.position);
+            GameObject _obj = Instantiate(_unite, _posDepart, Quaternion.identity);
+            _obj.GetComponent<CubeDeplacement>().Deplacer(_posArrive);
 
             Inventaire.instance.AjouterUniteJoueur();
         }

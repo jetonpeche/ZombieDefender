@@ -647,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].angle
-      value: 171.30002
+      value: 85.649994
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2343,7 +2343,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[0].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2353,7 +2353,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2393,7 +2393,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[0].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2403,7 +2403,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2418,12 +2418,12 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[0].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: InstancierUnite
+      value: InstancierUniteSniper
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: InstancierUnite
+      value: InstancierUnitePistolet
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
@@ -2444,23 +2444,21 @@ PrefabInstance:
         type: 3}
       propertyPath: piData.Array.data[0].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8001121426551704142, guid: f9658c8d52958d24383f36336a65029a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8554713762319746865, guid: eccba364c3097354d81f86c1224ddf58,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[0].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[1].onSlicePressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}

@@ -9,6 +9,7 @@ TagManager:
   - mur
   - copain
   - Objectif
+  - gameManager
   layers:
   - Default
   - TransparentFX

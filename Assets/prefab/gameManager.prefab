@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3387618711033941368}
   - component: {fileID: 1862289729}
   - component: {fileID: 6022429014065653201}
+  - component: {fileID: 1582670597}
   m_Layer: 0
   m_Name: gameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +99,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2b3aadff0978b4a92c4e70307f38dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1582670597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff65656f38a9900468470e2a93662f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitePistolet: {fileID: 8554713762319746865, guid: eccba364c3097354d81f86c1224ddf58,
+    type: 3}
+  uniteSniper: {fileID: 8001121426551704142, guid: f9658c8d52958d24383f36336a65029a,
+    type: 3}
