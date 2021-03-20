@@ -2,7 +2,7 @@
 
 public class CubeAttaque : MonoBehaviour
 {
-    [HideInInspector] public Transform cible;
+    public Transform cible;  
 
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection;
@@ -13,16 +13,18 @@ public class CubeAttaque : MonoBehaviour
     [SerializeField] private int degats;
 
     private float porter;
-    
+    private Transform persoPos;
+
     private void Start()
     {
         porter = zoneDectection.GetRadius();
+        persoPos = transform.parent.gameObject.transform;
     }
 
     private void Update()
     {
         if(cible != null)
-            transform.LookAt(cible);     
+            persoPos.LookAt(cible);  
     }
 
     public void Attaquer()
@@ -38,6 +40,7 @@ public class CubeAttaque : MonoBehaviour
         else
         {
             cible = null;
+            zoneDectection.bloquerPosReposArme = false;
             zoneDectection.BouttonActiverCibleAuto(true);
         }
     }
@@ -45,7 +48,10 @@ public class CubeAttaque : MonoBehaviour
     public void Repliquer(GameObject _cible)
     {
         if(cible == null)
+        {
             GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_cible, porter);
+            GetComponent<ArmeViserRepos>().Viser();
+        }
     }
 
     private void OnDrawGizmosSelected()

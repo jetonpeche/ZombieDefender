@@ -2,11 +2,14 @@
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(ArmeViserRepos))]
 public class CubeDeplacement : MonoBehaviour
 {
     [SerializeField] private CubeAttaque cubeAttaque;
     [SerializeField] private ZoneDectection zoneDectection;
+    [SerializeField] private Animator anim;
 
+    private ArmeViserRepos armeViserRepos;
     private NavMeshAgent agent;
     private GameObject cible;
     private float porter;
@@ -15,15 +18,19 @@ public class CubeDeplacement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        armeViserRepos = GetComponent<ArmeViserRepos>();
     }
 
     void Update()
     {
+        // POURQUOI TU NE MARCHES PAS !!!
+        //anim.SetFloat("vitesse", agent.velocity.magnitude);
+
         if(deplacerAporterCible)
         {
             // se deplacer jusqu'a porter pour attaquer
             if (Vector3.Distance(transform.position, cible.transform.position) > porter)
-            {
+            {              
                 agent.SetDestination(cible.transform.position);
             }    
             // lancer l'attaque sur l'ennemi
@@ -47,6 +54,9 @@ public class CubeDeplacement : MonoBehaviour
     public void Deplacer(Vector3 _hit)
     {
         agent.SetDestination(_hit);
+
+        if(cubeAttaque.cible == null)
+            armeViserRepos.Repos();
     }
 
     public void DeplacerVersEnnemi(GameObject _cible, float _porter)
@@ -54,6 +64,9 @@ public class CubeDeplacement : MonoBehaviour
         cible = _cible;
         porter = _porter;
 
-        deplacerAporterCible = true;
+        zoneDectection.bloquerPosReposArme = true;
+        armeViserRepos.Viser();
+
+        deplacerAporterCible = true;       
     }
 }

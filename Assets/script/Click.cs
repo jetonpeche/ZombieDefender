@@ -64,9 +64,13 @@ public class Click : MonoBehaviour
         // deplacement
         else if(Input.GetMouseButtonDown(1) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerTerrain))
         {
+            int _index = 0;
+            List<Vector3> _listOffsetDeplacement = CalculOffsetPositon();
+            
             foreach (GameObject _item in listeUniteSelectionne)
             {
-                _item.GetComponent<CubeDeplacement>().Deplacer(_hit.point);
+                _item.GetComponent<CubeDeplacement>().Deplacer(_hit.point + _listOffsetDeplacement[_index]);
+                _index = (_index + 1) % _listOffsetDeplacement.Count;
             }
         }
 
@@ -102,5 +106,41 @@ public class Click : MonoBehaviour
     public void UniteMorte(GameObject _obj)
     {
         listeUniteSelectionne.Remove(_obj);
+    }
+
+    private List<Vector3> CalculOffsetPositon()
+    {
+        List<Vector3> _list = new List<Vector3>();
+
+        // evite de bouclé inutilement
+        if (listeUniteSelectionne.Count > 1)
+        {
+            float _posX = 0;
+            float _posZ = 0;
+
+            int _nbUniteSurLigne = 0;            
+
+            foreach (var item in listeUniteSelectionne)
+            {
+                _list.Add(new Vector3(_posX, 0, _posZ));
+                _posX += 2;
+                _nbUniteSurLigne++;
+
+                if (_nbUniteSurLigne == 2)
+                {
+                    _nbUniteSurLigne = 0;
+
+                    _posZ += 2;
+                    _posX = 0;
+                }
+            }
+
+            return _list;
+        }
+        else
+        {
+            _list.Add(new Vector3(0, 0, 0));
+            return _list;
+        }
     }
 }
