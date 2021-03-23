@@ -20,8 +20,9 @@ public class MenuUniteCaserne : MonoBehaviour
     {
         // ajout des fonctions aux events du menu
         // delegate { } pour accepter les parametres dans le AddListerner()
-        menu.piData[0].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteSniper(pos.posDepart.position, pos.posArrive.position); });
-        menu.piData[1].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUnitePistolet(pos.posDepart.position, pos.posArrive.position); });
+        menu.piData[0].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteMarine(pos.posDepart.position, pos.posArrive.position); });
+        menu.piData[1].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteSniper(pos.posDepart.position, pos.posArrive.position); });
+        menu.piData[2].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteSpnkr(pos.posDepart.position, pos.posArrive.position); });
 
         menu.UpdatePiUI();
     }

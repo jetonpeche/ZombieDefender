@@ -12,7 +12,7 @@ public class CubeDeplacement : MonoBehaviour
     private ArmeViserRepos armeViserRepos;
     private NavMeshAgent agent;
     private GameObject cible;
-    private float porter;
+    private float porter, cadenceTirArme;
     private bool deplacerAporterCible;
 
     private void Awake()
@@ -23,16 +23,16 @@ public class CubeDeplacement : MonoBehaviour
 
     void Update()
     {
-        // POURQUOI TU NE MARCHES PAS !!!
+        // Ne peut pas reculer ou droite gauche
         //anim.SetFloat("vitesse", agent.velocity.magnitude);
 
         if(deplacerAporterCible)
         {
             // se deplacer jusqu'a porter pour attaquer
             if (Vector3.Distance(transform.position, cible.transform.position) > porter)
-            {              
+            {
                 agent.SetDestination(cible.transform.position);
-            }    
+            }
             // lancer l'attaque sur l'ennemi
             else if(Vector3.Distance(transform.position, cible.transform.position) <= porter)
             {
@@ -41,12 +41,12 @@ public class CubeDeplacement : MonoBehaviour
 
                 agent.SetDestination(transform.position);
 
-                cubeAttaque.cible = cible.transform;
+                cubeAttaque.Cibler(cible.transform);
 
                 cible = null;
 
                 if (!cubeAttaque.IsInvoking("Attaquer"))
-                    cubeAttaque.InvokeRepeating("Attaquer", 0f, 0.5f);
+                    cubeAttaque.InvokeRepeating("Attaquer", 0f, cadenceTirArme);
             }
         }
     }
@@ -55,7 +55,7 @@ public class CubeDeplacement : MonoBehaviour
     {
         agent.SetDestination(_hit);
 
-        if(cubeAttaque.cible == null)
+        if(cubeAttaque.GetCible() == null)
             armeViserRepos.Repos();
     }
 
@@ -64,9 +64,10 @@ public class CubeDeplacement : MonoBehaviour
         cible = _cible;
         porter = _porter;
 
+        cadenceTirArme = cubeAttaque.armeActuelle.GetCadenceTir();
         zoneDectection.bloquerPosReposArme = true;
         armeViserRepos.Viser();
 
-        deplacerAporterCible = true;       
+        deplacerAporterCible = true;
     }
 }

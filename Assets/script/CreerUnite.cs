@@ -12,16 +12,23 @@ public class CreerUnite : MonoBehaviour
     #endregion
 
     [Header("Marines")]
-    public GameObject unitePistolet, uniteSniper;
+    [SerializeField] private GameObject marine;
+    [SerializeField] private GameObject sniper;
+    [SerializeField] private GameObject spnkr;
 
-    public void InstancierUnitePistolet(Vector3 _posDepart, Vector3 _posArrive)
+    public void InstancierUniteMarine(Vector3 _posDepart, Vector3 _posArrive)
     {
-        Instancier(unitePistolet, _posDepart, _posArrive);
+        Instancier(marine, _posDepart, _posArrive);
     }
 
     public void InstancierUniteSniper(Vector3 _posDepart, Vector3 _posArrive)
     {
-        Instancier(uniteSniper, _posDepart, _posArrive);
+        Instancier(sniper, _posDepart, _posArrive);
+    }
+
+    public void InstancierUniteSpnkr(Vector3 _posDepart, Vector3 _posArrive)
+    {
+        Instancier(spnkr, _posDepart, _posArrive);
     }
 
     private void Instancier(GameObject _unite, Vector3 _posDepart, Vector3 _posArrive)

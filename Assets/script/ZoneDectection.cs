@@ -2,11 +2,11 @@
 
 public class ZoneDectection : MonoBehaviour
 {
-    [SerializeField] private CubeAttaque cubeAttaque;
-    [SerializeField] private float cadenceTir;
-    [SerializeField] private ArmeViserRepos armeViserRepos;
+    [SerializeField] private CubeAttaque cubeAttaque = null;
+    [SerializeField] private Arme armeActuelle = null;
+    [SerializeField] private ArmeViserRepos armeViserRepos = null;
 
-    [SerializeField] private LayerMask layer;
+    [SerializeField] private LayerMask layerCibler;
     [SerializeField] private float radius;
     [SerializeField] [Header("remplir sur les ennemis")] private string tagEnnemi;
 
@@ -28,7 +28,7 @@ public class ZoneDectection : MonoBehaviour
     // Detection automatique et declanche attaque
     private void Detection()
     {
-        Collider[] _tabCol = Physics.OverlapSphere(transform.position, radius, layer);
+        Collider[] _tabCol = Physics.OverlapSphere(transform.position, radius, layerCibler);
 
         // ennemis a porter
         if (_tabCol.Length > 0)
@@ -36,23 +36,23 @@ public class ZoneDectection : MonoBehaviour
             armeViserRepos.Viser();
 
             // evite de changer de cible quand une nouvelle est a porte
-            if (cubeAttaque.cible == null)
-                cubeAttaque.cible = _tabCol[0].transform;
+            if (cubeAttaque.GetCible() == null)
+                cubeAttaque.Cibler(_tabCol[0].transform);
 
             // script sur ennemi
             if (gameObject.transform.parent.transform.tag == tagEnnemi)
                 transform.parent.GetComponent<CubeDeplacementEnnemi>().StopDeplacement();
 
             if (!cubeAttaque.IsInvoking("Attaquer"))
-                cubeAttaque.InvokeRepeating("Attaquer", 0f, cadenceTir);
+                cubeAttaque.InvokeRepeating("Attaquer", 0f, armeActuelle.GetCadenceTir());
         }
         else
         {
             cubeAttaque.CancelInvoke("Attaquer");
-            cubeAttaque.cible = null;
+            cubeAttaque.Cibler(null);
 
             // bloque la pose repos quand c'est une attaque cible
-            if (armeViserRepos != null && !bloquerPosReposArme)
+            if (!bloquerPosReposArme)
                 armeViserRepos.Repos();
 
             // script sur ennemi
@@ -64,11 +64,6 @@ public class ZoneDectection : MonoBehaviour
     public float GetRadius()
     {
         return radius;
-    }
-
-    public string GetTagEnnemi()
-    {
-        return tagEnnemi;
     }
 
     private void OnDrawGizmosSelected()

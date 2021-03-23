@@ -5,12 +5,13 @@ using UnityEngine.AI;
 public class CubeDeplacementEnnemi : MonoBehaviour
 {
     private NavMeshAgent agent = null;
-    private Transform objectif;
+    public Transform objectif;
+    private Animator anim;
 
     private Transform tempoObjectif;
 
     private void Awake()
-    {
+    {        
         objectif = GameObject.FindGameObjectWithTag("Objectif").transform;
         tempoObjectif = objectif;
     }
@@ -18,11 +19,15 @@ public class CubeDeplacementEnnemi : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
         DeplacerToObjectif();
     }
 
     private void Update()
     {
+        anim.SetFloat("vitesse", agent.velocity.magnitude);
+
         if(!Objectif.objectifDetruit)
             agent.SetDestination(objectif.position);
     }

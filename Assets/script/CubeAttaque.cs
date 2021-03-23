@@ -2,16 +2,12 @@
 
 public class CubeAttaque : MonoBehaviour
 {
-    public Transform cible;  
+    public Arme armeActuelle = null;
 
     [SerializeField] private LayerMask layerEnnemi;
-    [SerializeField] private ZoneDectection zoneDectection;
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform canonArme;
-    [SerializeField] private int vitesseProjectile;
-    [SerializeField] private string tagCibleProjectile;
-    [SerializeField] private int degats;
+    [SerializeField] private ZoneDectection zoneDectection = null;
 
+    private Transform cible;
     private float porter;
     private Transform persoPos;
 
@@ -32,10 +28,7 @@ public class CubeAttaque : MonoBehaviour
         // permet de ne pas tirer sur un mur avec un ennemi derriere et ignore les collisions entre raycast
         if (Physics.Raycast(transform.position, transform.forward, porter, layerEnnemi, QueryTriggerInteraction.Ignore))
         {
-            GameObject _obj = Instantiate(projectile, canonArme.position, Quaternion.identity);
-
-            _obj.GetComponent<Projectile>().Initialiser(transform.position, porter, tagCibleProjectile, degats, gameObject);
-            _obj.GetComponent<Rigidbody>().velocity = canonArme.forward * vitesseProjectile;
+            armeActuelle.Tirer();
         }
         else
         {
@@ -52,6 +45,16 @@ public class CubeAttaque : MonoBehaviour
             GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_cible, porter);
             GetComponent<ArmeViserRepos>().Viser();
         }
+    }
+
+    public void Cibler(Transform _cible)
+    {
+        cible = _cible;
+    }
+
+    public Transform GetCible()
+    {
+        return cible;
     }
 
     private void OnDrawGizmosSelected()

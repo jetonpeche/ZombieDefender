@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     private Vector3 posDepart;
     private float distance;
     private GameObject ennemi;
+    private float vitesse;
 
     private void Update()
     {
@@ -15,13 +16,16 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi)
+    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi, float _vitesse)
     {
         posDepart = _posDepart;
         distance = _distance;
         tagCible = _tagCible;
         ennemi = _ennemi;
         degats = _degats;
+        vitesse = _vitesse;
+
+        GetComponent<Rigidbody>().velocity = transform.forward * vitesse;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +34,7 @@ public class Projectile : MonoBehaviour
         {
             // ennemi
             if(other.GetComponent<CubeAttaque>())
-            { 
+            {
                 other.GetComponent<CubeVie>().SubirDegat(degats, ennemi);
             }
             // objectif

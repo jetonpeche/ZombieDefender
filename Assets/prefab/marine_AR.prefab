@@ -48,12 +48,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 3710823391074907362}
-  projectile: {fileID: 6754003487658184802, guid: 746ae5d0ff59a49439c43fe12191dc32,
-    type: 3}
-  canonArme: {fileID: 3710823390719955765}
-  vitesseProjectile: 5
-  tagCibleProjectile: ennemi
-  degats: 0
+  armeActuelle: {fileID: 486440914}
 --- !u!1 &1427993187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,9 +1984,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeAttaque: {fileID: 173392759}
-  cadenceTir: 0.5
+  armeActuelle: {fileID: 486440914}
   armeViserRepos: {fileID: 4672015083037713228}
-  layer:
+  layerCibler:
     serializedVersion: 2
     m_Bits: 512
   radius: 5
@@ -2424,6 +2419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3710823392323513478}
+  - component: {fileID: 486440914}
   m_Layer: 2
   m_Name: fusil_assaut
   m_TagString: Untagged
@@ -2446,6 +2442,29 @@ Transform:
   m_Father: {fileID: 3816175387163074950}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486440914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710823392323513593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef50d978627b21b48a8119e4ab4cf99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cadenceTir: 0.5
+  vitesseBalle: 10
+  tempsRechargement: 2
+  tagCible: ennemi
+  balleChargeur: 32
+  degats: 0
+  projectile: {fileID: 6754003487658184802, guid: 746ae5d0ff59a49439c43fe12191dc32,
+    type: 3}
+  canon: {fileID: 3710823390719955765}
+  zoneDectection: {fileID: 3710823391074907362}
+  personnage: {fileID: 4593134951586724668}
 --- !u!1 &3710823392358034920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2618,14 +2637,14 @@ GameObject:
   - component: {fileID: 7067814259250199548}
   - component: {fileID: 3710823391839438443}
   - component: {fileID: 4593134951586724669}
-  - component: {fileID: 4593134951586724666}
   - component: {fileID: 4593134951586724664}
   - component: {fileID: 1633114832}
   - component: {fileID: 1633114833}
   - component: {fileID: 1633114834}
   - component: {fileID: 4672015083037713228}
+  - component: {fileID: 1736926835}
   m_Layer: 10
-  m_Name: perso
+  m_Name: marine_AR
   m_TagString: copain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2664,7 +2683,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7aaa8d50676c98b418396defed477866, type: 3}
   m_Controller: {fileID: 9100000, guid: bcf3a88ea0406f4419777ee96d551135, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -2702,7 +2721,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 5
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 720
@@ -2714,21 +2733,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4593134951586724666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4593134951586724668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65e99f3e8b626142b6c622aa07df55d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeAttaque: {fileID: 173392759}
-  zoneDectection: {fileID: 3710823391074907362}
-  anim: {fileID: 0}
 --- !u!136 &4593134951586724664
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2798,6 +2802,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesseVise: 0.5
   arme_viser: {fileID: 3710823390890381373}
+--- !u!114 &1736926835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593134951586724668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65e99f3e8b626142b6c622aa07df55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeAttaque: {fileID: 173392759}
+  zoneDectection: {fileID: 3710823391074907362}
+  anim: {fileID: 7067814259250199548}
 --- !u!1 &4900197161286804087
 GameObject:
   m_ObjectHideFlags: 0
