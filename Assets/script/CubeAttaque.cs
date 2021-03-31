@@ -6,21 +6,20 @@ public class CubeAttaque : MonoBehaviour
 
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection = null;
+    [SerializeField] private Transform persoPos;
 
-    private Transform cible;
+    public Transform cible;
     private float porter;
-    private Transform persoPos;
 
     private void Start()
     {
         porter = zoneDectection.GetRadius();
-        persoPos = transform.parent.gameObject.transform;
     }
 
     private void Update()
     {
         if(cible != null)
-            persoPos.LookAt(cible);  
+            persoPos.LookAt(cible);
     }
 
     public void Attaquer()

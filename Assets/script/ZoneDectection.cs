@@ -8,12 +8,19 @@ public class ZoneDectection : MonoBehaviour
 
     [SerializeField] private LayerMask layerCibler;
     [SerializeField] private float radius;
+    [SerializeField] private bool uniteTourelle;
+
     [SerializeField] [Header("remplir sur les ennemis")] private string tagEnnemi;
 
-    [HideInInspector] public bool bloquerPosReposArme;
+    [HideInInspector] public bool bloquerPosReposArme, tournerTourelle;
+
+    private CubeDeplacement cubeDeplacement = null;
 
     private void Start()
     {
+        if(uniteTourelle)
+            cubeDeplacement = transform.parent.gameObject.GetComponent<CubeDeplacement>();
+
         BouttonActiverCibleAuto(true);
     }
 
@@ -33,7 +40,8 @@ public class ZoneDectection : MonoBehaviour
         // ennemis a porter
         if (_tabCol.Length > 0)
         {
-            armeViserRepos.Viser();
+            if(armeViserRepos != null)
+                armeViserRepos.Viser();
 
             // evite de changer de cible quand une nouvelle est a porte
             if (cubeAttaque.GetCible() == null)
@@ -45,14 +53,23 @@ public class ZoneDectection : MonoBehaviour
 
             if (!cubeAttaque.IsInvoking("Attaquer"))
                 cubeAttaque.InvokeRepeating("Attaquer", 0f, armeActuelle.GetCadenceTir());
+
+            tournerTourelle = true;
         }
         else
         {
+            if (uniteTourelle && tournerTourelle)
+            {
+                cubeDeplacement.Invoke("InitialPosTourelle", 2f);
+                tournerTourelle = false;
+            }
+                
+
             cubeAttaque.CancelInvoke("Attaquer");
             cubeAttaque.Cibler(null);
 
             // bloque la pose repos quand c'est une attaque cible
-            if (!bloquerPosReposArme)
+            if (!bloquerPosReposArme && armeViserRepos != null)
                 armeViserRepos.Repos();
 
             // script sur ennemi

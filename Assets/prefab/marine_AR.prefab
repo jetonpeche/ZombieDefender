@@ -43,12 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668d710c4de4c048814f68d357362f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cible: {fileID: 0}
+  armeActuelle: {fileID: 486440914}
   layerEnnemi:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 3710823391074907362}
-  armeActuelle: {fileID: 486440914}
+  persoPos: {fileID: 3816175387163074950}
+  cible: {fileID: 0}
 --- !u!1 &1427993187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,8 +1991,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   radius: 5
+  uniteTourelle: 0
   tagEnnemi: 
   bloquerPosReposArme: 0
+  tournerTourelle: 0
 --- !u!1 &3710823391351551160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,6 +2820,7 @@ MonoBehaviour:
   cubeAttaque: {fileID: 173392759}
   zoneDectection: {fileID: 3710823391074907362}
   anim: {fileID: 7067814259250199548}
+  tourelleChar: {fileID: 0}
 --- !u!1 &4900197161286804087
 GameObject:
   m_ObjectHideFlags: 0

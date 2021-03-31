@@ -2,18 +2,18 @@
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(ArmeViserRepos))]
 public class CubeDeplacement : MonoBehaviour
 {
-    [SerializeField] private CubeAttaque cubeAttaque;
-    [SerializeField] private ZoneDectection zoneDectection;
-    [SerializeField] private Animator anim;
+    [SerializeField] private CubeAttaque cubeAttaque = null;
+    [SerializeField] private ZoneDectection zoneDectection = null;
+    [SerializeField] private Animator anim = null;
+    [SerializeField] private Transform tourelleChar = null;
 
-    private ArmeViserRepos armeViserRepos;
+    private ArmeViserRepos armeViserRepos = null;
     private NavMeshAgent agent;
-    private GameObject cible;
+    private GameObject cible = null;
     private float porter, cadenceTirArme;
-    private bool deplacerAporterCible;
+    private bool deplacerAporterCible, tournerTourelle;
 
     private void Awake()
     {
@@ -26,7 +26,43 @@ public class CubeDeplacement : MonoBehaviour
         // Ne peut pas reculer ou droite gauche
         //anim.SetFloat("vitesse", agent.velocity.magnitude);
 
-        if(deplacerAporterCible)
+        DeplacerAporterCible();
+
+        if(tournerTourelle)
+            TournerTourelle();
+    }
+
+    public void Deplacer(Vector3 _hit)
+    {
+        agent.SetDestination(_hit);
+
+        if(cubeAttaque.GetCible() == null && armeViserRepos != null)
+            armeViserRepos.Repos();
+    }
+
+    public void DeplacerVersEnnemi(GameObject _cible, float _porter)
+    {
+        cible = _cible;
+        porter = _porter;
+
+        cadenceTirArme = cubeAttaque.armeActuelle.GetCadenceTir();
+        zoneDectection.bloquerPosReposArme = true;
+        tournerTourelle = false;
+
+        if(armeViserRepos != null)
+            armeViserRepos.Viser();
+
+        deplacerAporterCible = true;
+    }
+
+    public void InitialPosTourelle()
+    {
+        tournerTourelle = true;
+    }
+
+    private void DeplacerAporterCible()
+    {
+        if (deplacerAporterCible)
         {
             // se deplacer jusqu'a porter pour attaquer
             if (Vector3.Distance(transform.position, cible.transform.position) > porter)
@@ -34,7 +70,7 @@ public class CubeDeplacement : MonoBehaviour
                 agent.SetDestination(cible.transform.position);
             }
             // lancer l'attaque sur l'ennemi
-            else if(Vector3.Distance(transform.position, cible.transform.position) <= porter)
+            else if (Vector3.Distance(transform.position, cible.transform.position) <= porter)
             {
                 deplacerAporterCible = false;
                 zoneDectection.BouttonActiverCibleAuto(false);
@@ -51,23 +87,11 @@ public class CubeDeplacement : MonoBehaviour
         }
     }
 
-    public void Deplacer(Vector3 _hit)
+    private void TournerTourelle()
     {
-        agent.SetDestination(_hit);
+        tourelleChar.rotation = Quaternion.Lerp(tourelleChar.rotation, transform.rotation, 2f * Time.deltaTime);
 
-        if(cubeAttaque.GetCible() == null)
-            armeViserRepos.Repos();
-    }
-
-    public void DeplacerVersEnnemi(GameObject _cible, float _porter)
-    {
-        cible = _cible;
-        porter = _porter;
-
-        cadenceTirArme = cubeAttaque.armeActuelle.GetCadenceTir();
-        zoneDectection.bloquerPosReposArme = true;
-        armeViserRepos.Viser();
-
-        deplacerAporterCible = true;
+        if (tourelleChar.rotation == transform.rotation)
+            tournerTourelle = false;
     }
 }
