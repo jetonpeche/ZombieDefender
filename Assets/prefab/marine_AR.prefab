@@ -1990,7 +1990,7 @@ MonoBehaviour:
   layerCibler:
     serializedVersion: 2
     m_Bits: 512
-  radius: 5
+  radius: 20
   uniteTourelle: 0
   tagEnnemi: 
   bloquerPosReposArme: 0
@@ -2648,7 +2648,7 @@ GameObject:
   - component: {fileID: 1736926835}
   m_Layer: 10
   m_Name: marine_AR
-  m_TagString: copain
+  m_TagString: copain,marine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

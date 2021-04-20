@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Objectif
 {
-    public static bool objectifDetruit;
+    public static bool objectifDetruit = false;
 }

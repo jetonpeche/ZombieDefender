@@ -115,22 +115,41 @@ public class Click : MonoBehaviour
         // evite de bouclé inutilement
         if (listeUniteSelectionne.Count > 1)
         {
+            // char x, z = 8
+            // marine x, z = 2
+
             float _posX = 0;
             float _posZ = 0;
 
-            int _nbUniteSurLigne = 0;            
+            int _nbUniteSurLigne = 0;
+            bool _vehiculeDansSelection = false;
 
             foreach (var item in listeUniteSelectionne)
             {
                 _list.Add(new Vector3(_posX, 0, _posZ));
-                _posX += 2;
-                _nbUniteSurLigne++;
+
+                if (Tag.PossedeTag("scorpion", item))
+                {
+                    _vehiculeDansSelection = true;
+                    _posX += 8;
+                    _nbUniteSurLigne++;
+                }
+                else
+                {
+                    _posX += 2;
+                    _nbUniteSurLigne++;
+                }
+                
 
                 if (_nbUniteSurLigne == 2)
                 {
                     _nbUniteSurLigne = 0;
 
-                    _posZ += 2;
+                    if (_vehiculeDansSelection)
+                        _posZ += 8;
+                    else
+                        _posZ += 2;
+
                     _posX = 0;
                 }
             }

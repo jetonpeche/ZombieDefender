@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(tagCible))
+        if (Tag.PossedeTag(tagCible, other.gameObject))
         {
             // ennemi
             if(other.GetComponent<CubeAttaque>())

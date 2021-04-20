@@ -6,12 +6,18 @@ public class CubeClick : MonoBehaviour
 
     public void OnMouseOver()
     {
-        BouttonMontrerBarVie(true);
+        if(canvas != null)
+            BouttonMontrerBarVie(true);
+
+        Click();
     }
 
     public void OnMouseExit()
     {
-        BouttonMontrerBarVie(false);
+        if (canvas != null)
+            BouttonMontrerBarVie(false);
+
+        Clack();
     }
 
     public void BouttonMontrerBarVie(bool _stat)

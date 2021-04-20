@@ -15,6 +15,7 @@ public class CreerUnite : MonoBehaviour
     [SerializeField] private GameObject marine;
     [SerializeField] private GameObject sniper;
     [SerializeField] private GameObject spnkr;
+    [SerializeField] private GameObject scorpion;
 
     public void InstancierUniteMarine(Vector3 _posDepart, Vector3 _posArrive)
     {
@@ -29,6 +30,11 @@ public class CreerUnite : MonoBehaviour
     public void InstancierUniteSpnkr(Vector3 _posDepart, Vector3 _posArrive)
     {
         Instancier(spnkr, _posDepart, _posArrive);
+    }
+
+    public void InstancierUniteScorpion(Vector3 _posDepart, Vector3 _posArrive)
+    {
+        Instancier(scorpion, _posDepart, _posArrive);
     }
 
     private void Instancier(GameObject _unite, Vector3 _posDepart, Vector3 _posArrive)

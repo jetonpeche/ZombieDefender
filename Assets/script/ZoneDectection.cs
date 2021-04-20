@@ -10,7 +10,7 @@ public class ZoneDectection : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private bool uniteTourelle;
 
-    [SerializeField] [Header("remplir sur les ennemis")] private string tagEnnemi;
+    [SerializeField] private bool estEnnemi = false;
 
     [HideInInspector] public bool bloquerPosReposArme, tournerTourelle;
 
@@ -48,7 +48,7 @@ public class ZoneDectection : MonoBehaviour
                 cubeAttaque.Cibler(_tabCol[0].transform);
 
             // script sur ennemi
-            if (gameObject.transform.parent.transform.tag == tagEnnemi)
+            if (estEnnemi)
                 transform.parent.GetComponent<CubeDeplacementEnnemi>().StopDeplacement();
 
             if (!cubeAttaque.IsInvoking("Attaquer"))
@@ -73,8 +73,12 @@ public class ZoneDectection : MonoBehaviour
                 armeViserRepos.Repos();
 
             // script sur ennemi
-            if (gameObject.transform.parent.transform.tag == tagEnnemi)
-                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();             
+            if (estEnnemi)
+            {
+                print("coucou");
+                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();
+            }
+                         
         }
     }
 

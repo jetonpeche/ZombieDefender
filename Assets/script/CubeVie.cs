@@ -42,9 +42,6 @@ public class CubeVie : MonoBehaviour
 
     private void Mort()
     {
-        GetComponent<MeshRenderer>().material.color = Color.black;
-        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
         // unite joueur
         if(GetComponent<CubeDeplacement>())
         {
@@ -57,6 +54,7 @@ public class CubeVie : MonoBehaviour
         else
         {
             Destroy(GetComponent<CubeDeplacementEnnemi>());
+            Inventaire.instance.ReduireUniteEnnemi();
         }   
 
         GetComponent<Collider>().enabled = false;

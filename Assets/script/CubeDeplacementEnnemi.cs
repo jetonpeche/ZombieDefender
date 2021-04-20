@@ -4,16 +4,15 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CubeDeplacementEnnemi : MonoBehaviour
 {
-    private NavMeshAgent agent = null;
-    public Transform objectif;
-    private Animator anim;
+    [SerializeField] private string tagObjectif;
 
-    private Transform tempoObjectif;
+    private NavMeshAgent agent = null;
+    private Transform objectif;
+    private Animator anim;
 
     private void Awake()
     {        
-        objectif = GameObject.FindGameObjectWithTag("Objectif").transform;
-        tempoObjectif = objectif;
+        objectif = GameObject.FindGameObjectWithTag(tagObjectif).transform;
     }
 
     private void Start()
@@ -34,11 +33,11 @@ public class CubeDeplacementEnnemi : MonoBehaviour
 
     public void StopDeplacement()
     {
-        objectif = transform;
+        agent.isStopped = true;
     }
 
     public void DeplacerToObjectif()
     {
-        objectif = tempoObjectif;
+        agent.isStopped = false;
     }
 }

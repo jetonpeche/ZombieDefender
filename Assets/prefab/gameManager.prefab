@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1862289729}
   - component: {fileID: 6022429014065653201}
   - component: {fileID: 1582670597}
+  - component: {fileID: 185083951}
+  - component: {fileID: 185083952}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: gameManager
@@ -71,7 +73,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtNbUniteJoueur: {fileID: 0}
   txtNbUniteEnnemi: {fileID: 0}
+  txtNbManche: {fileID: 0}
   nbUniteMaxJoueur: 10
+  nbUniteMaxEnnemi: 50
 --- !u!114 &1862289729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +115,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff65656f38a9900468470e2a93662f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitePistolet: {fileID: 8554713762319746865, guid: eccba364c3097354d81f86c1224ddf58,
+  marine: {fileID: 4593134951586724668, guid: 18de128e0f15c874c8611bc082732a79, type: 3}
+  sniper: {fileID: 9126487052754161599, guid: c1bf656f5032a9a4184e039e942cd1ec, type: 3}
+  spnkr: {fileID: 8927686854969497465, guid: 92a849015ef908e419c29f5b9f5c9590, type: 3}
+  scorpion: {fileID: 7557532356926484677, guid: 4266a7b2f82d10c4483795f4f1774c2e,
     type: 3}
-  uniteSniper: {fileID: 8001121426551704142, guid: f9658c8d52958d24383f36336a65029a,
-    type: 3}
+--- !u!114 &185083951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55791aab5d210947a38e1ed6e3f9b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPause: {fileID: 0}
+--- !u!114 &185083952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab5fe05ad143fc44a734dbf382e7ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuGameOver: {fileID: 0}
