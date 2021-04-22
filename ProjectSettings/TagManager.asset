@@ -9,9 +9,11 @@ TagManager:
   - mur
   - Objectif
   - gameManager
-  - copain,marine
   - copain,scorpion
-  - copain, marine
+  - copain,objectif
+  - copain,sniper
+  - copain,spnkr
+  - copain,ar
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,8 @@ public class CubeDeplacementEnnemi : MonoBehaviour
     private Animator anim;
 
     private void Awake()
-    {        
-        objectif = GameObject.FindGameObjectWithTag(tagObjectif).transform;
+    {
+        objectif = GameObject.FindWithTag(tagObjectif).transform;
     }
 
     private void Start()

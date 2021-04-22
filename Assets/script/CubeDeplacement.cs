@@ -45,7 +45,7 @@ public class CubeDeplacement : MonoBehaviour
         cible = _cible;
         porter = _porter;
 
-        cadenceTirArme = cubeAttaque.armeActuelle.GetCadenceTir();
+        cadenceTirArme = cubeAttaque.armeActuelle[0].GetCadenceTir();
         zoneDectection.bloquerPosReposArme = true;
         tournerTourelle = false;
 

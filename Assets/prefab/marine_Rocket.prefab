@@ -1539,6 +1539,7 @@ MonoBehaviour:
   cadenceTir: 3
   vitesseBalle: 5
   tempsRechargement: 5
+  dispersionTir: 0.01
   tagCible: ennemi
   balleChargeur: 2
   degats: 20
@@ -1778,11 +1779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668d710c4de4c048814f68d357362f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armeActuelle: {fileID: 4925693360916012775}
+  armeActuelle:
+  - {fileID: 4925693360916012775}
   layerEnnemi:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 8585244304163379367}
+  persoPos: {fileID: 8119518748287815107}
+  cible: {fileID: 0}
 --- !u!1 &4975696773637216289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,14 +3817,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeAttaque: {fileID: 4925693361973997362}
-  armeActuelle: {fileID: 4925693360916012775}
+  armeActuelle:
+  - {fileID: 4925693360916012775}
   armeViserRepos: {fileID: 328130506687942409}
   layerCibler:
     serializedVersion: 2
     m_Bits: 512
   radius: 8
-  tagEnnemi: 
+  uniteTourelle: 0
+  estEnnemi: 0
   bloquerPosReposArme: 0
+  tournerTourelle: 0
 --- !u!1 &8585244304423278845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,7 +4306,7 @@ GameObject:
   - component: {fileID: 4925693360299510326}
   m_Layer: 10
   m_Name: marine_Rocket
-  m_TagString: copain
+  m_TagString: copain,spnkr
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4398,9 +4405,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.339863
-  m_Height: 2.2073593
+  m_Height: 2.3730493
   m_Direction: 1
-  m_Center: {x: 0.022405803, y: 1.1342118, z: 0}
+  m_Center: {x: 0.022405803, y: 1.2170568, z: 0}
 --- !u!114 &4925693360279598741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,6 +4434,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeBarVie: {fileID: 4925693360279598743}
+  multiplicateurResistanceBase: 1.3
+  tagResistance: 
+  multiplicateurDegatMoins: 0.5
+  tagFaiblesse: 
+  multiplicateurDegatSupp: 1.5
 --- !u!114 &4925693360279598743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4471,3 +4483,4 @@ MonoBehaviour:
   cubeAttaque: {fileID: 4925693361973997362}
   zoneDectection: {fileID: 8585244304163379367}
   anim: {fileID: 2760283933234698169}
+  tourelleChar: {fileID: 0}

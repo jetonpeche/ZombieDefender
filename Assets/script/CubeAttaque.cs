@@ -2,7 +2,7 @@
 
 public class CubeAttaque : MonoBehaviour
 {
-    public Arme armeActuelle = null;
+    public Arme[] armeActuelle = null;
 
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection = null;
@@ -27,7 +27,11 @@ public class CubeAttaque : MonoBehaviour
         // permet de ne pas tirer sur un mur avec un ennemi derriere et ignore les collisions entre raycast
         if (Physics.Raycast(transform.position, transform.forward, porter, layerEnnemi, QueryTriggerInteraction.Ignore))
         {
-            armeActuelle.Tirer();
+            print("coucou");
+            foreach (Arme arme in armeActuelle)
+            {
+                arme.Tirer();
+            }
         }
         else
         {

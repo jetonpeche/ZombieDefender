@@ -3,7 +3,7 @@
 public class ZoneDectection : MonoBehaviour
 {
     [SerializeField] private CubeAttaque cubeAttaque = null;
-    [SerializeField] private Arme armeActuelle = null;
+    [SerializeField] private Arme[] armeActuelle = null;
     [SerializeField] private ArmeViserRepos armeViserRepos = null;
 
     [SerializeField] private LayerMask layerCibler;
@@ -52,7 +52,13 @@ public class ZoneDectection : MonoBehaviour
                 transform.parent.GetComponent<CubeDeplacementEnnemi>().StopDeplacement();
 
             if (!cubeAttaque.IsInvoking("Attaquer"))
-                cubeAttaque.InvokeRepeating("Attaquer", 0f, armeActuelle.GetCadenceTir());
+            {
+                foreach (Arme arme in armeActuelle)
+                {
+                    cubeAttaque.InvokeRepeating("Attaquer", 0f, arme.GetCadenceTir());
+                }               
+            }
+                
 
             tournerTourelle = true;
         }
@@ -74,11 +80,7 @@ public class ZoneDectection : MonoBehaviour
 
             // script sur ennemi
             if (estEnnemi)
-            {
-                print("coucou");
-                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();
-            }
-                         
+                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();                        
         }
     }
 

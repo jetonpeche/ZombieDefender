@@ -1226,6 +1226,7 @@ MonoBehaviour:
   cadenceTir: 2
   vitesseBalle: 15
   tempsRechargement: 2
+  dispersionTir: 0.015
   tagCible: ennemi
   balleChargeur: 4
   degats: 25
@@ -1375,11 +1376,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668d710c4de4c048814f68d357362f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armeActuelle: {fileID: 76266745}
+  armeActuelle:
+  - {fileID: 76266745}
   layerEnnemi:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 8243454629231591521}
+  persoPos: {fileID: 8497196499848746245}
+  cible: {fileID: 0}
 --- !u!1 &4691022903071157709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,14 +3659,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeAttaque: {fileID: 4691022903058708468}
-  armeActuelle: {fileID: 76266745}
+  armeActuelle:
+  - {fileID: 76266745}
   armeViserRepos: {fileID: 130473062279026639}
   layerCibler:
     serializedVersion: 2
     m_Bits: 512
-  radius: 10
-  tagEnnemi: 
+  radius: 20
+  uniteTourelle: 0
+  estEnnemi: 0
   bloquerPosReposArme: 0
+  tournerTourelle: 0
 --- !u!1 &8243454629508333627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,7 +4226,7 @@ GameObject:
   - component: {fileID: 130473062279026639}
   m_Layer: 10
   m_Name: marine_sniper
-  m_TagString: copain
+  m_TagString: copain,sniper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4322,6 +4329,7 @@ MonoBehaviour:
   cubeAttaque: {fileID: 4691022903058708468}
   zoneDectection: {fileID: 8243454629231591521}
   anim: {fileID: 2525454955608838015}
+  tourelleChar: {fileID: 0}
 --- !u!136 &9126487052754161595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4362,6 +4370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeBarVie: {fileID: 4691022901297262161}
+  multiplicateurResistanceBase: 1.3
+  tagResistance: 
+  multiplicateurDegatMoins: 0.5
+  tagFaiblesse: 
+  multiplicateurDegatSupp: 1.5
 --- !u!114 &4691022901297262161
 MonoBehaviour:
   m_ObjectHideFlags: 0

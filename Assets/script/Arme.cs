@@ -6,6 +6,7 @@ public class Arme : MonoBehaviour
     [SerializeField] private float cadenceTir;
     [SerializeField] private float vitesseBalle;
     [SerializeField] private float tempsRechargement;
+    [SerializeField] [Range(0f, 0.1f)] private float dispersionTir = 0.05f;
 
     [SerializeField] private string tagCible;
 
@@ -30,7 +31,7 @@ public class Arme : MonoBehaviour
         if(!recharge)
         {
             GameObject _obj = Instantiate(projectile, canon.position, canon.rotation);
-            _obj.GetComponent<Projectile>().Initialiser(transform.position, zoneDectection.GetRadius(), tagCible, degats, personnage, vitesseBalle);
+            _obj.GetComponent<Projectile>().Initialiser(transform.position, zoneDectection.GetRadius(), tagCible, degats, personnage, vitesseBalle, dispersionTir);
             balleChargeur--;
 
             if(balleChargeur == 0)

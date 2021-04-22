@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private float distance;
     private GameObject ennemi;
     private float vitesse;
+    private float dispersionTir;
 
     private void Update()
     {
@@ -16,7 +17,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi, float _vitesse)
+    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi, float _vitesse, float _dispersionTir)
     {
         posDepart = _posDepart;
         distance = _distance;
@@ -24,8 +25,13 @@ public class Projectile : MonoBehaviour
         ennemi = _ennemi;
         degats = _degats;
         vitesse = _vitesse;
+        dispersionTir = Random.Range(-_dispersionTir, _dispersionTir);
 
-        GetComponent<Rigidbody>().velocity = transform.forward * vitesse;
+        GetComponent<Rigidbody>().velocity = transform.forward + DispertionTir() * vitesse;
+    }
+    private Vector3 DispertionTir()
+    {
+        return (transform.forward + (transform.up * dispersionTir) + (transform.right * Random.Range(-1, 1) * dispersionTir)).normalized;
     }
 
     private void OnTriggerEnter(Collider other)
