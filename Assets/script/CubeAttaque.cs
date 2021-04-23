@@ -27,7 +27,6 @@ public class CubeAttaque : MonoBehaviour
         // permet de ne pas tirer sur un mur avec un ennemi derriere et ignore les collisions entre raycast
         if (Physics.Raycast(transform.position, transform.forward, porter, layerEnnemi, QueryTriggerInteraction.Ignore))
         {
-            print("coucou");
             foreach (Arme arme in armeActuelle)
             {
                 arme.Tirer();

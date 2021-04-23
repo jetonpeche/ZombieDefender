@@ -18,6 +18,11 @@ public class Arme : MonoBehaviour
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private GameObject personnage = null;
 
+    [SerializeField] private AudioClip sonTir = null;
+    [SerializeField] private AudioSource audioSource = null;
+
+    [SerializeField] private ParticleSystem muzzleFlash = null;
+
     private bool recharge;
     private int tempoBalleChargeur;
 
@@ -30,6 +35,9 @@ public class Arme : MonoBehaviour
     {
         if(!recharge)
         {
+            audioSource.PlayOneShot(sonTir);
+            muzzleFlash.Emit(1);
+
             GameObject _obj = Instantiate(projectile, canon.position, canon.rotation);
             _obj.GetComponent<Projectile>().Initialiser(transform.position, zoneDectection.GetRadius(), tagCible, degats, personnage, vitesseBalle, dispersionTir);
             balleChargeur--;
