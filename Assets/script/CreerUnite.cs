@@ -11,7 +11,7 @@ public class CreerUnite : MonoBehaviour
     }
     #endregion
 
-    [Header("Marines")]
+    [Header("Unitées")]
     [SerializeField] private GameObject marine;
     [SerializeField] private GameObject sniper;
     [SerializeField] private GameObject spnkr;
@@ -39,7 +39,7 @@ public class CreerUnite : MonoBehaviour
 
     private void Instancier(GameObject _unite, Vector3 _posDepart, Vector3 _posArrive)
     {
-        if (Inventaire.instance.NombreUniteMaxAtteint())
+        if (!Inventaire.instance.NombreUniteMaxAtteint())
         {
             GameObject _obj = Instantiate(_unite, _posDepart, Quaternion.identity);
             _obj.GetComponent<CubeDeplacement>().Deplacer(_posArrive);

@@ -27,6 +27,7 @@ public class Inventaire : MonoBehaviour
     private void Start()
     {
         AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unité: ", " / " + nbUniteMaxJoueur);
+        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unité ennemi: ");
         txtNbManche.text = "Manche: " + manche;
     }
 
@@ -67,12 +68,12 @@ public class Inventaire : MonoBehaviour
 
     public bool NombreUniteMaxAtteint()
     {
-        return nbUniteJoueur < nbUniteMaxJoueur; 
+        return nbUniteJoueur > nbUniteMaxJoueur; 
     }
 
     public bool NombreUniteMaxEnnemiAtteint()
     {
-        return nbUniteEnnemi < nbUniteMaxEnnemi;
+        return nbUniteEnnemi > nbUniteMaxEnnemi;
     }
 
     private void AfficherNbUnite(Text _txtUnite, int _nbUnite, string _text, string _max = null)

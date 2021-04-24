@@ -2,26 +2,37 @@
 
 public class MenuBatiment : MonoBehaviour
 {
-    #region singletoon
     public static MenuBatiment instance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-    #endregion
-
     [SerializeField] private PiUIManager piUi;
-    [SerializeField] private PiUI menu;
+    [SerializeField] private string nomMenu;
+
+    public PiUI menu;
 
     public bool instanceBP;
 
-    private void Update()
+    private void Awake()
+    {      
+        piUi = GameObject.Find("Pi UI Canvas").GetComponent<PiUIManager>();
+        menu = piUi.GetPiUIOf(nomMenu);
+
+        instance = this;
+    }
+
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !instanceBP)
-        {
+        // ajout des fonctions aux events du menu
+        // delegate { } pour accepter les parametres dans le AddListerner()
+        menu.piData[0].onSlicePressed.AddListener(CreerBlueprint.instance.InstancierBPcaserne);
+        menu.piData[1].onSlicePressed.AddListener(CreerBlueprint.instance.InstancierBPgarage);
+
+        menu.UpdatePiUI();
+    }
+
+    private void OnMouseDown()
+    {
+        if(!instanceBP)
             BouttonMenu();
-        }
     }
 
     public void BouttonMenu()

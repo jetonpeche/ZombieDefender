@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3387618711033941371}
   - component: {fileID: 3387618711033941370}
   - component: {fileID: 3387618711033941368}
-  - component: {fileID: 1862289729}
   - component: {fileID: 6022429014065653201}
   - component: {fileID: 1582670597}
   - component: {fileID: 185083951}
@@ -76,21 +75,6 @@ MonoBehaviour:
   txtNbManche: {fileID: 0}
   nbUniteMaxJoueur: 10
   nbUniteMaxEnnemi: 50
---- !u!114 &1862289729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3387618711033941317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc86848ec98be3b4ea9bbe700ec30285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  piUi: {fileID: 0}
-  menu: {fileID: 0}
-  instanceBP: 0
 --- !u!114 &6022429014065653201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +87,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2b3aadff0978b4a92c4e70307f38dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bp_caserne: {fileID: 7420470155264270294, guid: 16fb7b8fcfee6cd469c2d038dcea5980,
+    type: 3}
+  bp_garage: {fileID: 3548535248662532262, guid: 5797db8d1bb00ff4a91c0b0accd28392,
+    type: 3}
 --- !u!114 &1582670597
 MonoBehaviour:
   m_ObjectHideFlags: 0
