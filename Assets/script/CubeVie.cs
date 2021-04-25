@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
 public class CubeVie : MonoBehaviour
 {
+    [SerializeField] private bool estEnnemi;
+
     [SerializeField] private CubeBarVie cubeBarVie;
 
-    [Header("Multiplicateur en % (10% = 1.1 / -10% = 0.9)")]
-    [SerializeField] [Range(0f, 2f)] private float multiplicateurResistanceBase = 1.3f;
+    [Header("Resistance de la base en % (10% = 1.1 / -10% = 0.9)")]
+    [SerializeField] [Range(1f, 1.9f)] private float multiplicateurResistanceBase = 1.3f;
 
+    [Header("Resistance en % (10% = 1.1 / -10% = 0.9)")]
     [SerializeField] private string tagResistance;
-    [SerializeField] [Range(0f, 2f)] private float multiplicateurDegatMoins = 0.5f;
+    [SerializeField] [Range(0f, 1f)] private float multiplicateurDegatMoins = 0.5f;
 
+    [Header("faiblesse en % (10% = 1.1 / -10% = 0.9)")]
     [SerializeField] private string tagFaiblesse;
-    [SerializeField] [Range(0f, 2f)] private float multiplicateurDegatSupp = 1.5f;
+    [SerializeField] [Range(1f, 2f)] private float multiplicateurDegatSupp = 1.5f;
 
     private int vie;
 
@@ -21,21 +24,14 @@ public class CubeVie : MonoBehaviour
         vie = cubeBarVie.GetVie();
     }
 
+    public bool EstVivant()
+    {
+        return vie > 0;
+    }
+
     public void SubirDegat(int _degats, GameObject _cible)
     {
-        if(tagFaiblesse == "" || tagResistance == "")
-        {
-            if (Tag.PossedeTag(tagFaiblesse, _cible))
-            {
-                _degats = (int)(_degats * multiplicateurDegatSupp);
-            }
-            else if (Tag.PossedeTag(tagResistance, _cible))
-            {
-                _degats = (int)(_degats * multiplicateurDegatMoins);
-            }
-        }
-
-        vie -= _degats;
+        vie -= CalculDegats(_degats, _cible);
         cubeBarVie.SetVieSlider(vie);
 
         if(vie <= 0)
@@ -46,13 +42,17 @@ public class CubeVie : MonoBehaviour
 
         // se defendre contre IA ennemi
         if(_cible.GetComponent<CubeDeplacementEnnemi>())
-            GetComponent<CubeAttaque>().Repliquer(_cible);         
+            transform.GetComponentInChildren<CubeAttaque>().Repliquer(_cible);
     }
 
     public void SubirDegatObjectif(int _degats)
     {
-        if(multiplicateurResistanceBase > 0)
-             _degats = (int)(_degats * multiplicateurResistanceBase);           
+        if(multiplicateurResistanceBase > 1)
+        {
+            float _pourcentage = 2 - multiplicateurResistanceBase;
+
+            _degats = (int)(_degats * _pourcentage);
+        }
 
         vie -= _degats;
         cubeBarVie.SetVieSlider(vie);
@@ -66,30 +66,29 @@ public class CubeVie : MonoBehaviour
 
     private void Mort()
     {
-        // unite joueur
-        if(GetComponent<CubeDeplacement>())
-        {
-            gameObject.GetComponent<CubeClick>().Clack();
-            Click.instance.UniteMorte(gameObject);
-            Destroy(GetComponent<CubeDeplacement>());
-
-            Inventaire.instance.ReduireUniteJoueur();
-        }
-        else
-        {
-            Destroy(GetComponent<CubeDeplacementEnnemi>());
+        if (estEnnemi)
             Inventaire.instance.ReduireUniteEnnemi();
-        }   
+        else
+            Inventaire.instance.ReduireUniteJoueur();
 
-        GetComponent<Collider>().enabled = false;
-        GetComponent<NavMeshAgent>().enabled = false;
+        Destroy(gameObject);
+    }
 
-        Destroy(GetComponent<CubeAttaque>());
-        Destroy(GetComponentInChildren<ZoneDectection>());
+    private int CalculDegats(int _degats, GameObject _cible)
+    {
+        if (tagFaiblesse != "" || tagResistance != "")
+        {
+            if (Tag.PossedeTag(tagFaiblesse, _cible))
+            {
+                return _degats = (int)(_degats * multiplicateurDegatSupp);
+            }
 
-        gameObject.layer = 2;
-        gameObject.tag = "Untagged";
+            else if (Tag.PossedeTag(tagResistance, _cible))
+            {
+                return _degats = (int)(_degats * multiplicateurDegatMoins);
+            }
+        }
 
-        Destroy(gameObject, 5);
+        return _degats;
     }
 }

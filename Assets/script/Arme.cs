@@ -35,7 +35,9 @@ public class Arme : MonoBehaviour
     {
         if(!recharge)
         {
-            audioSource.PlayOneShot(sonTir);
+            if(audioSource != null)
+                audioSource.PlayOneShot(sonTir);
+
             muzzleFlash.Emit(1);
 
             GameObject _obj = Instantiate(projectile, canon.position, canon.rotation);

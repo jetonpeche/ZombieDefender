@@ -34,26 +34,25 @@ public class Projectile : MonoBehaviour
         return (transform.forward + (transform.up * dispersionTir) + (transform.right * Random.Range(-1, 1) * dispersionTir)).normalized;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (Tag.PossedeTag(tagCible, other.gameObject))
+        if (Tag.PossedeTag(tagCible, _other.gameObject))
         {
+            CubeVie _cubeVie = _other.GetComponent<CubeVie>();
+
             // ennemi
-            if(other.GetComponent<CubeAttaque>())
+            if (_other.GetComponentInChildren<CubeAttaque>())
             {
-                other.GetComponent<CubeVie>().SubirDegat(degats, ennemi);
+                if (_cubeVie.EstVivant())
+                    _cubeVie.SubirDegat(degats, ennemi);
             }
             // objectif
             else
             {
-                other.GetComponent<CubeVie>().SubirDegatObjectif(degats);
+                _cubeVie.SubirDegatObjectif(degats);
             }
-            
-            Destroy(gameObject);
-        }   
-        else if(other.CompareTag("mur"))
-        {
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }

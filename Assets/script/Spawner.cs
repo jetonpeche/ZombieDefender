@@ -8,18 +8,20 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(!Inventaire.instance.NombreUniteMaxEnnemiAtteint() && !Inventaire.instance.NombreEnnemisSpawnAtteint())
         {
-            // spawn sur le navMesh quand il a trouve un espace sur celui ci   
-            if(!Inventaire.instance.NombreUniteMaxEnnemiAtteint())
+            // spawn sur le navMesh quand il a trouve un espace sur celui ci  
+            Vector3 _point;
+            if (RandomPoint(transform.position, range, out _point))
             {
-                Vector3 _point;
-                if (RandomPoint(transform.position, range, out _point))
-                {
-                    Instantiate(listePrefab[Random.Range(0, listePrefab.Length)], _point, Quaternion.identity);
-                    Inventaire.instance.AjouterUniteEnnemi();
-                }
+                Instantiate(listePrefab[Random.Range(0, listePrefab.Length)], _point, Quaternion.identity);
+                Inventaire.instance.AjouterUniteEnnemi();
             }
+        }
+
+        if(Inventaire.instance.MancheEstTerminer())
+        {
+            Inventaire.instance.MancheTerminer();
         }
     }
 

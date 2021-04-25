@@ -1961,6 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06c3d8cebb0a254d9b43087bc2cc5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  estEnnemi: 1
   cubeBarVie: {fileID: 7766071002367224357}
   multiplicateurResistanceBase: 1.3
   tagResistance: spnkr
@@ -2438,6 +2439,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6957340981075062942}
     m_Modifications:
+    - target: {fileID: 375870247, guid: b729e365deac7e946adb1fda3a087988, type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 375870247, guid: b729e365deac7e946adb1fda3a087988, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4462822580380671076, guid: b729e365deac7e946adb1fda3a087988,
         type: 3}
       propertyPath: m_RootOrder
@@ -2500,13 +2509,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462822580380671099, guid: b729e365deac7e946adb1fda3a087988,
         type: 3}
+      propertyPath: degats
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462822580380671099, guid: b729e365deac7e946adb1fda3a087988,
+        type: 3}
       propertyPath: personnage
       value: 
       objectReference: {fileID: 7766071002367224356}
     - target: {fileID: 4462822580380671099, guid: b729e365deac7e946adb1fda3a087988,
         type: 3}
       propertyPath: vitesseBalle
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4462822580380671099, guid: b729e365deac7e946adb1fda3a087988,
         type: 3}

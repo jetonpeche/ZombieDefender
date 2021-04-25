@@ -19,6 +19,7 @@ public class PiUIManager : MonoBehaviour
         }
 
         print("There are: " + dict.Count + " menu in dictionary");
+
         transform.localScale = new Vector3(1f / Screen.width, 1f / Screen.height);
 		transform.position = Vector2.zero;
     }

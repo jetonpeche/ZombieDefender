@@ -11175,7 +11175,7 @@ MonoBehaviour:
   canon: {fileID: 4925693361752579002}
   zoneDectection: {fileID: 8585244304163379367}
   personnage: {fileID: 8927686854969497465}
-  sonTir: {fileID: 8300000, guid: 6ef9c9835c76f514cb10e152d80ce7be, type: 3}
+  sonTir: {fileID: 8300000, guid: 04740d37de874d94290d5f7d9a9d6ac0, type: 3}
   audioSource: {fileID: 221996989}
   muzzleFlash: {fileID: 198234348635673274}
 --- !u!82 &221996989
@@ -11199,7 +11199,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11234,7 +11234,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
