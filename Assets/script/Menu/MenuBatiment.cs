@@ -8,6 +8,7 @@ public class MenuBatiment : MonoBehaviour
 
     private PiUIManager piUi;
     private PiUI menu;
+    private bool menuOuvert = false;
 
     public bool instanceBP;
 
@@ -30,12 +31,20 @@ public class MenuBatiment : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!instanceBP)
+        if(!instanceBP && !MenuUniteOuvert.menuOuvert)
             BouttonMenu();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && MenuUniteOuvert.menuOuvert && menuOuvert)
+        {
+            BouttonMenu();
+        }
     }
 
     public void BouttonMenu()
     {
-        piUi.ChangeMenuState(menu.name, new Vector2(Screen.width / 2f, Screen.height / 2f));
+       menuOuvert = MenuUniteOuvert.ActiverMenu(piUi, menu.name);
     }
 }

@@ -29,12 +29,13 @@ public class MenuUniteCaserne : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ActiverMenu();
+        if (!MenuUniteOuvert.menuOuvert)
+            ActiverMenu();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && menuOuvert)
+        if(Input.GetKeyDown(KeyCode.Escape) && MenuUniteOuvert.menuOuvert && menuOuvert)
         {
             ActiverMenu();
         }
@@ -42,10 +43,7 @@ public class MenuUniteCaserne : MonoBehaviour
 
     private void ActiverMenu()
     {
-        piUi.ChangeMenuState(menu.name, new Vector2(Screen.width / 2f, Screen.height / 2f));
-        menuOuvert = !menuOuvert;
-        DeplacementCamera.instance.FreezeDeplacementCamera();
-
+        menuOuvert = MenuUniteOuvert.ActiverMenu(piUi, menu.name);
         GetComponent<Collider>().enabled = !menuOuvert;
     }
 }

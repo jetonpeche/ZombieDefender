@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 1582670597}
   - component: {fileID: 185083951}
   - component: {fileID: 185083952}
+  - component: {fileID: 1274771721}
+  - component: {fileID: 1274771724}
+  - component: {fileID: 1274771723}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: gameManager
@@ -70,11 +73,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce397f1e4e66d744893b6554a31d47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbUniteFaireSpawn: 1
   txtNbUniteJoueur: {fileID: 0}
   txtNbUniteEnnemi: {fileID: 0}
   txtNbManche: {fileID: 0}
+  txtNbEnnemisTuer: {fileID: 0}
   nbUniteMaxJoueur: 10
-  nbUniteMaxEnnemi: 50
+  nbUniteMaxEnnemi: 10
 --- !u!114 &6022429014065653201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +139,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuGameOver: {fileID: 0}
+--- !u!114 &1274771721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ee03d52c5ac3340854e9968ce0dc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minuteur: {fileID: 0}
+  txtMinuteur: {fileID: 0}
+  tempsEntreDeuxVague: 5
+--- !u!114 &1274771724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b046296149021449b450b9857b25ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeSonFloodHord:
+  - {fileID: 8300000, guid: 04f4bd4a143680f4cbff4868634a41f8, type: 3}
+  - {fileID: 8300000, guid: 95b1833e29781994bbca40f6fdbf0e89, type: 3}
+  - {fileID: 8300000, guid: f12474de55089fa42b2af823916c536b, type: 3}
+  - {fileID: 8300000, guid: 7f67a829b67ce69429aa71560bccdc8b, type: 3}
+--- !u!82 &1274771723
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

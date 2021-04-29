@@ -44,6 +44,10 @@ public class Minuteur : MonoBehaviour
                 FinPause();
             }
         }
+        else
+        {
+            SonFond.instance.JouerMusic();
+        }
     }
 
     public void DemarerMinuteur()

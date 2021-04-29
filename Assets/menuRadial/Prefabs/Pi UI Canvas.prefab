@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &245334651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245334652}
+  m_Layer: 5
+  m_Name: txtManche
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &245334652
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245334651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2069913958}
+  - {fileID: 1299995346}
+  m_Father: {fileID: 224313250904812496}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -746, y: -434}
+  m_SizeDelta: {x: 385.84467, y: 171.24261}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &281022343
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,8 +337,6 @@ RectTransform:
   m_Children:
   - {fileID: 281022344}
   - {fileID: 1574211795}
-  - {fileID: 2069913958}
-  - {fileID: 1299995346}
   m_Father: {fileID: 224313250904812496}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -335,17 +370,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299995343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1295944395}
-  m_RootOrder: 3
+  m_Father: {fileID: 245334652}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00016022, y: -44.465}
-  m_SizeDelta: {x: 520.2374, y: 88.930725}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 39.117}
+  m_SizeDelta: {x: 0, y: 78.233765}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1299995345
 CanvasRenderer:
@@ -491,17 +526,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069913957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1295944395}
-  m_RootOrder: 2
+  m_Father: {fileID: 245334652}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 45.12857}
-  m_SizeDelta: {x: 0, y: 90.25714}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -46.509}
+  m_SizeDelta: {x: 0, y: 92.99931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2069913960
 CanvasRenderer:
@@ -649,6 +684,7 @@ RectTransform:
   - {fileID: 2937576598718666272}
   - {fileID: 2192727612364911836}
   - {fileID: 1183906949}
+  - {fileID: 245334652}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2919,12 +2955,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d1463efe512bc4a90597e508985031, type: 3}
---- !u!224 &224700794903220477 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224700795880293456, guid: f8d1463efe512bc4a90597e508985031,
-    type: 3}
-  m_PrefabInstance: {fileID: 1539642541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &114358343945811453 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
@@ -2937,6 +2967,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d756ce428286446a7a7c4412a5d3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &224700794903220477 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224700795880293456, guid: f8d1463efe512bc4a90597e508985031,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539642541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1721787670
 PrefabInstance:
   m_ObjectHideFlags: 0

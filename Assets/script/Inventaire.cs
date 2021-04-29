@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Inventaire : MonoBehaviour
 {
     #region singletoon
@@ -13,7 +12,7 @@ public class Inventaire : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private int nbUniteFaireSpawn = 1;
+    [SerializeField] private int nbUniteFaireSpawn = 10;
 
     [SerializeField] private Text txtNbUniteJoueur = null;
     [SerializeField] private Text txtNbUniteEnnemi = null;
@@ -32,9 +31,9 @@ public class Inventaire : MonoBehaviour
 
     private void Start()
     {
-        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unité: ", " / " + nbUniteMaxJoueur);
-        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unité ennemi: ");
-        AfficherNbUnite(txtNbEnnemisTuer, nbUniteTuer, "Unité tuées: ");
+        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unités: ", " / " + nbUniteMaxJoueur);
+        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unités ennemi: ");
+        AfficherNbUnite(txtNbEnnemisTuer, nbUniteTuer, "Unités tuées: ");
         txtNbManche.text = "Manche: " + manche;
     }
 
@@ -43,14 +42,14 @@ public class Inventaire : MonoBehaviour
     public void AjouterUniteJoueur()
     {
         nbUniteJoueur++;
-        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unité: ", " / " + nbUniteMaxJoueur);
+        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unités: ", " / " + nbUniteMaxJoueur);
     }
 
     public void AjouterUniteEnnemi()
     {
         nbUniteEnnemi++;
         nbUniteEnnemiSpawner++;
-        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unité ennemi: ");
+        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unités ennemi: ");
     }
 
     public void ReduireUniteJoueur()
@@ -60,7 +59,7 @@ public class Inventaire : MonoBehaviour
         if (nbUniteJoueur < 0)
             nbUniteJoueur = 0;
 
-        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unité: ", " / " + nbUniteMaxJoueur);
+        AfficherNbUnite(txtNbUniteJoueur, nbUniteJoueur, "Unités: ", " / " + nbUniteMaxJoueur);
     }
 
     public void ReduireUniteEnnemi()
@@ -68,17 +67,20 @@ public class Inventaire : MonoBehaviour
         nbUniteEnnemi--;
         nbUniteTuer++;
 
-        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unité ennemi: ");
-        AfficherNbUnite(txtNbEnnemisTuer, nbUniteTuer, "Unité tuées: ");
+        AfficherNbUnite(txtNbUniteEnnemi, nbUniteEnnemi, "Unités ennemi: ");
+        AfficherNbUnite(txtNbEnnemisTuer, nbUniteTuer, "Unités tuées: ");
     }
 
     public void MancheTerminer()
-    {  
+    {
+        SonFond.instance.StopperMusic();
         Minuteur.instance.DemarerMinuteur();
     }
 
     public void NouvelleManche()
     {
+        SonFond.instance.JouerSonHorde();
+
         manche++;
         txtNbManche.text = "Manche: " + manche;
 
