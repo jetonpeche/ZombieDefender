@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     private string tagCible;
     private Vector3 posDepart;
     private float distance;
-    private GameObject ennemi;
+    public GameObject ennemi;
     private float vitesse;
     private float dispersionTir;
 

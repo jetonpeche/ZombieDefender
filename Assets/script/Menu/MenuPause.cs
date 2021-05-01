@@ -35,6 +35,7 @@ public class MenuPause : MonoBehaviour
     private void BouttonMenuPause()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        AudioListener.pause = !AudioListener.pause;
         menuPause.SetActive(!menuPause.activeSelf);
     }
 }

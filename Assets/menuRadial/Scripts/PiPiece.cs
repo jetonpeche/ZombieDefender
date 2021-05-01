@@ -131,7 +131,7 @@ public class PiPiece : MonoBehaviour
                 // appel l'event click
                 if (Input.GetMouseButtonDown(0) || parent.useController && parent.joystickButton)
                 {
-                    clickEvent.Invoke( );
+                    clickEvent.Invoke();
                 }
             }
         }

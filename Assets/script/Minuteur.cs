@@ -29,7 +29,7 @@ public class Minuteur : MonoBehaviour
     private void Update()
     {
         // passer la pause
-        if(Input.GetKeyDown(KeyCode.F1))
+        if(Input.GetKeyDown(KeyCode.F3))
         {
             FinPause();
         }

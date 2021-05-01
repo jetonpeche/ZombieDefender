@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 224313250904812496}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -746, y: -434}
-  m_SizeDelta: {x: 385.84467, y: 171.24261}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -185.5, y: -112.609985}
+  m_SizeDelta: {x: 304.84302, y: 171.24261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &281022343
 GameObject:
@@ -974,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}
       propertyPath: piData.Array.data[0].angle
-      value: 188.69998
+      value: 171.30002
       objectReference: {fileID: 0}
     - target: {fileID: 114358342674604368, guid: f8d1463efe512bc4a90597e508985031,
         type: 3}

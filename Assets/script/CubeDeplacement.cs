@@ -12,7 +12,8 @@ public class CubeDeplacement : MonoBehaviour
     private ArmeViserRepos armeViserRepos = null;
     private NavMeshAgent agent;
     private GameObject cible = null;
-    private float porter, cadenceTirArme;
+    private float porter;
+    private Arme[] armes;
     private bool deplacerAporterCible, tournerTourelle;
 
     private void Awake()
@@ -45,7 +46,7 @@ public class CubeDeplacement : MonoBehaviour
         cible = _cible;
         porter = _porter;
 
-        cadenceTirArme = cubeAttaque.armeActuelle[0].GetCadenceTir();
+        armes = zoneDectection.GetArmes();
         zoneDectection.bloquerPosReposArme = true;
         tournerTourelle = false;
 
@@ -82,7 +83,7 @@ public class CubeDeplacement : MonoBehaviour
                 cible = null;
 
                 if (!cubeAttaque.IsInvoking("Attaquer"))
-                    cubeAttaque.InvokeRepeating("Attaquer", 0f, cadenceTirArme);
+                    cubeAttaque.InvokeRepeating("Attaquer", 0f, armes[0].GetCadenceTir());
             }
         }
     }

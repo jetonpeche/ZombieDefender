@@ -1,0 +1,26 @@
+
+UNITES
+Click gauche: selectionner unité
+Click droit + souris sur ennemi: Attaquer ennemi ciblé
+Click droit sur le sol: deplacement
+
+Ctrl appuyé: voir bar de vie des unités choisis
+Ctrl relaché: caché bar de vie des unités choisis
+
+Shit + click gauche selection unités multiple (une par une)
+
+
+CAMERA
+A: rotation cam gauche
+E: rotation cam droite
+AZQSD ou fleche: deplacement cam
+Molette souris: zoom / dézoom
+
+
+AUTRES
+F1: Pause
+F2: skip music
+F3: skip pause entre deux vague
+
+Echape: fermer menu
+

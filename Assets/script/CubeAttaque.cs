@@ -2,11 +2,10 @@
 
 public class CubeAttaque : MonoBehaviour
 {
-    public Arme[] armeActuelle = null;
-
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private Transform persoPos;
+    [SerializeField] private Arme[] armeActuelle;
 
     public Transform cible;
     private float porter;
@@ -14,6 +13,7 @@ public class CubeAttaque : MonoBehaviour
     private void Start()
     {
         porter = zoneDectection.GetRadius();
+        armeActuelle = zoneDectection.GetArmes();
     }
 
     private void Update()
@@ -44,8 +44,10 @@ public class CubeAttaque : MonoBehaviour
     {
         if(cible == null)
         {
-            GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_cible, porter);
-            GetComponent<ArmeViserRepos>().Viser();
+            armeActuelle[0].GetPerso().GetComponent<CubeDeplacement>().DeplacerVersEnnemi(_cible, porter);
+
+            if (GetComponent<ArmeViserRepos>())
+                GetComponent<ArmeViserRepos>().Viser();
         }
     }
 

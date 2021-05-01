@@ -196,13 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668d710c4de4c048814f68d357362f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armeActuelle:
-  - {fileID: 4889623311576168298}
   layerEnnemi:
     serializedVersion: 2
     m_Bits: 512
   zoneDectection: {fileID: 78352931}
   persoPos: {fileID: 3115032842153856711}
+  armeActuelle:
+  - {fileID: 4889623311576168298}
   cible: {fileID: 0}
 --- !u!1 &1172775958
 GameObject:
@@ -227,13 +227,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172775958}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.21, z: -6.11}
+  m_LocalRotation: {x: 3.401424e-10, y: -0.9990154, z: -0.044366084, w: -0.0000000011408765}
+  m_LocalPosition: {x: 0.000006572357, y: 0.20998621, z: -6.110096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5108539712989670092}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.0860004, y: -179.99998, z: 0}
 --- !u!1 &240568948090928355
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cadenceTir: 3
-  vitesseBalle: 60
+  vitesseBalle: 40
   tempsRechargement: 0
   dispersionTir: 0.05
   tagCible: ennemi
@@ -1976,6 +1976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06c3d8cebb0a254d9b43087bc2cc5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  estEnnemi: 0
   cubeBarVie: {fileID: 1722370415}
   multiplicateurResistanceBase: 1.3
   tagResistance: ar
@@ -2008,8 +2009,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.387918, y: 2.180902, z: 4.539565}
-  m_Center: {x: 0.07852578, y: 1.0910285, z: 0.17399168}
+  m_Size: {x: 3.387918, y: 2.8221831, z: 4.539565}
+  m_Center: {x: 0.07852578, y: 1.411669, z: 0.17399168}
 --- !u!1 &7560652969769316154
 GameObject:
   m_ObjectHideFlags: 0

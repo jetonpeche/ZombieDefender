@@ -22,8 +22,10 @@ public class Inventaire : MonoBehaviour
     [SerializeField] private int nbUniteMaxJoueur;
     [SerializeField] private int nbUniteMaxEnnemi;
     
-    private int nbUniteJoueur = 3;
+    // unités sur le terrain
+    private int nbUniteJoueur = 4;
     private int nbUniteEnnemi = 0;
+
     private int nbUniteEnnemiSpawner = 0;
     private int nbUniteTuer = 0;
 

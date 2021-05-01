@@ -56,6 +56,11 @@ public class Arme : MonoBehaviour
         return cadenceTir;
     }
 
+    public GameObject GetPerso()
+    {
+        return personnage;
+    }
+
     private IEnumerator Recharger()
     {
         recharge = true;

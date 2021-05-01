@@ -56,9 +56,9 @@ public class ZoneDectection : MonoBehaviour
                 foreach (Arme arme in armeActuelle)
                 {
                     cubeAttaque.InvokeRepeating("Attaquer", 0f, arme.GetCadenceTir());
-                }               
+                }
             }
-                
+
 
             tournerTourelle = true;
         }
@@ -69,7 +69,6 @@ public class ZoneDectection : MonoBehaviour
                 cubeDeplacement.Invoke("InitialPosTourelle", 2f);
                 tournerTourelle = false;
             }
-                
 
             cubeAttaque.CancelInvoke("Attaquer");
             cubeAttaque.Cibler(null);
@@ -87,6 +86,11 @@ public class ZoneDectection : MonoBehaviour
     public float GetRadius()
     {
         return radius;
+    }
+
+    public Arme[] GetArmes()
+    {
+        return armeActuelle;
     }
 
     private void OnDrawGizmosSelected()
