@@ -7207,10 +7207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 76266745, guid: c1bf656f5032a9a4184e039e942cd1ec, type: 3}
-      propertyPath: cadenceTir
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5421642677388027643, guid: c1bf656f5032a9a4184e039e942cd1ec,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8408,11 +8404,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: marine_AR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593134951586724668, guid: 18de128e0f15c874c8611bc082732a79,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18de128e0f15c874c8611bc082732a79, type: 3}

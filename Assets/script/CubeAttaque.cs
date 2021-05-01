@@ -56,6 +56,11 @@ public class CubeAttaque : MonoBehaviour
         cible = _cible;
     }
 
+    public LayerMask GetLayerCible()
+    {
+        return layerEnnemi;
+    }
+
     public Transform GetCible()
     {
         return cible;

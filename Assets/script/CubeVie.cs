@@ -2,6 +2,8 @@
 
 public class CubeVie : MonoBehaviour
 {
+    [SerializeField] private Ragdoll ragdoll;
+    [SerializeField] private Arme[] listeArme;
     [SerializeField] private bool estEnnemi;
 
     [SerializeField] private CubeBarVie cubeBarVie;
@@ -66,12 +68,26 @@ public class CubeVie : MonoBehaviour
 
     private void Mort()
     {
-        if (estEnnemi)
+        /*if (estEnnemi)
             Inventaire.instance.ReduireUniteEnnemi();
         else
-            Inventaire.instance.ReduireUniteJoueur();
+            Inventaire.instance.ReduireUniteJoueur();*/
 
-        Destroy(gameObject);
+        if(ragdoll != null)
+        {
+            foreach (Arme _arme in listeArme)
+            {
+                _arme.DetacherArme();
+            }
+
+            ragdoll.ActiverRagDoll(true);
+
+            Destroy(gameObject, 5f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private int CalculDegats(int _degats, GameObject _cible)

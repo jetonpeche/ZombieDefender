@@ -5,8 +5,7 @@ public class ZoneDectection : MonoBehaviour
     [SerializeField] private CubeAttaque cubeAttaque = null;
     [SerializeField] private Arme[] armeActuelle = null;
     [SerializeField] private ArmeViserRepos armeViserRepos = null;
-
-    [SerializeField] private LayerMask layerCibler;
+    
     [SerializeField] private float radius;
     [SerializeField] private bool uniteTourelle;
 
@@ -15,9 +14,12 @@ public class ZoneDectection : MonoBehaviour
     [HideInInspector] public bool bloquerPosReposArme, tournerTourelle;
 
     private CubeDeplacement cubeDeplacement = null;
+    private LayerMask layerCibler;
 
     private void Start()
     {
+        layerCibler = cubeAttaque.GetLayerCible();
+
         if(uniteTourelle)
             cubeDeplacement = transform.parent.gameObject.GetComponent<CubeDeplacement>();
 
@@ -59,7 +61,6 @@ public class ZoneDectection : MonoBehaviour
                 }
             }
 
-
             tournerTourelle = true;
         }
         else
@@ -70,7 +71,7 @@ public class ZoneDectection : MonoBehaviour
                 tournerTourelle = false;
             }
 
-            cubeAttaque.CancelInvoke("Attaquer");
+            StopAttaque();
             cubeAttaque.Cibler(null);
 
             // bloque la pose repos quand c'est une attaque cible
@@ -91,6 +92,11 @@ public class ZoneDectection : MonoBehaviour
     public Arme[] GetArmes()
     {
         return armeActuelle;
+    }
+
+    public void StopAttaque()
+    {
+        cubeAttaque.CancelInvoke("Attaquer");
     }
 
     private void OnDrawGizmosSelected()

@@ -47,9 +47,6 @@ MonoBehaviour:
   armeActuelle:
   - {fileID: 4889623311576168298}
   armeViserRepos: {fileID: 0}
-  layerCibler:
-    serializedVersion: 2
-    m_Bits: 512
   radius: 20
   uniteTourelle: 1
   estEnnemi: 0
@@ -883,11 +880,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50d978627b21b48a8119e4ab4cf99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  estDeuxiemeArme: 0
   cadenceTir: 3
   vitesseBalle: 40
   tempsRechargement: 0
   dispersionTir: 0.05
   tagCible: ennemi
+  nomTrigger: 
   balleChargeur: 1
   degats: 0
   projectile: {fileID: 6754003487658184802, guid: 746ae5d0ff59a49439c43fe12191dc32,
@@ -895,9 +894,14 @@ MonoBehaviour:
   canon: {fileID: 1172775959}
   zoneDectection: {fileID: 78352931}
   personnage: {fileID: 7557532356926484677}
+  animatorEvent: {fileID: 0}
+  animator: {fileID: 0}
   sonTir: {fileID: 8300000, guid: 8d89d22923e0d684ea18c5f05b9888a5, type: 3}
   audioSource: {fileID: 587996786}
   muzzleFlash: {fileID: 198234347200043880}
+  rigTransform: {fileID: 0}
+  rb: {fileID: 0}
+  col: {fileID: 0}
 --- !u!82 &587996786
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1976,6 +1980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06c3d8cebb0a254d9b43087bc2cc5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdoll: {fileID: 0}
+  listeArme: []
   estEnnemi: 0
   cubeBarVie: {fileID: 1722370415}
   multiplicateurResistanceBase: 1.3

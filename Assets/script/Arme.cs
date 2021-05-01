@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class Arme : MonoBehaviour
 {
+    [SerializeField] private bool estDeuxiemeArme;
+
     [SerializeField] private float cadenceTir;
     [SerializeField] private float vitesseBalle;
     [SerializeField] private float tempsRechargement;
     [SerializeField] [Range(0f, 0.1f)] private float dispersionTir = 0.05f;
 
     [SerializeField] private string tagCible;
+    [SerializeField] private string nomTrigger;
 
     [SerializeField] private int balleChargeur;
     [SerializeField] private int degats;
@@ -17,11 +21,17 @@ public class Arme : MonoBehaviour
     [SerializeField] private Transform canon = null;
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private GameObject personnage = null;
+    [SerializeField] private AnimatorEvent animatorEvent = null;
+    [SerializeField] private Animator animator = null;
 
     [SerializeField] private AudioClip sonTir = null;
     [SerializeField] private AudioSource audioSource = null;
 
     [SerializeField] private ParticleSystem muzzleFlash = null;
+
+    [SerializeField] private RigTransform rigTransform = null;
+    [SerializeField] private Rigidbody rb = null;
+    [SerializeField] private Collider col = null;
 
     private bool recharge;
     private int tempoBalleChargeur;
@@ -46,7 +56,14 @@ public class Arme : MonoBehaviour
 
             if(balleChargeur == 0)
             {
-                StartCoroutine(Recharger());
+                recharge = true;
+
+                if(animator != null)
+                    animator.SetTrigger(nomTrigger);
+                else
+                {
+                    StartCoroutine(RechargerCoroutine());
+                }
             }
         }
     }
@@ -61,12 +78,27 @@ public class Arme : MonoBehaviour
         return personnage;
     }
 
-    private IEnumerator Recharger()
+    public void Recharger()
     {
-        recharge = true;
-        yield return new WaitForSeconds(tempsRechargement);
-        recharge = false;
-
         balleChargeur = tempoBalleChargeur;
+        recharge = false;
+    }
+
+    public void DetacherArme()
+    {
+        rb.useGravity = true;
+        col.enabled = true;
+        zoneDectection.BouttonActiverCibleAuto(false);
+
+        if(!estDeuxiemeArme)
+            zoneDectection.StopAttaque();
+
+        Destroy(rigTransform);
+    }
+
+    private IEnumerator RechargerCoroutine()
+    {
+        yield return new WaitForSeconds(tempsRechargement);
+        Recharger();
     }
 }
