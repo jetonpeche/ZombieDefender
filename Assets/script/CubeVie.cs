@@ -7,6 +7,7 @@ public class CubeVie : MonoBehaviour
     [SerializeField] private bool estEnnemi;
 
     [SerializeField] private CubeBarVie cubeBarVie;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("Resistance de la base en % (10% = 1.1 / -10% = 0.9)")]
     [SerializeField] [Range(1f, 1.9f)] private float multiplicateurResistanceBase = 1.3f;
@@ -68,10 +69,17 @@ public class CubeVie : MonoBehaviour
 
     private void Mort()
     {
-        /*if (estEnnemi)
+        if (estEnnemi)
+        {
+            SonMort.instance.JouerSonMortFlood(audioSource);
             Inventaire.instance.ReduireUniteEnnemi();
+        }
         else
-            Inventaire.instance.ReduireUniteJoueur();*/
+        {
+            SonMort.instance.JouerSonMortMarine(audioSource);
+            Inventaire.instance.ReduireUniteJoueur();
+        }
+            
 
         if(ragdoll != null)
         {

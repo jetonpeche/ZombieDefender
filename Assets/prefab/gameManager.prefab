@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 1274771721}
   - component: {fileID: 1274771724}
   - component: {fileID: 1274771723}
+  - component: {fileID: 4160111397898933248}
+  - component: {fileID: 184020137201420114}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: gameManager
@@ -73,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce397f1e4e66d744893b6554a31d47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbUniteFaireSpawn: 1
+  nbUniteFaireSpawn: 10
   txtNbUniteJoueur: {fileID: 0}
   txtNbUniteEnnemi: {fileID: 0}
   txtNbManche: {fileID: 0}
@@ -171,6 +173,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95b1833e29781994bbca40f6fdbf0e89, type: 3}
   - {fileID: 8300000, guid: f12474de55089fa42b2af823916c536b, type: 3}
   - {fileID: 8300000, guid: 7f67a829b67ce69429aa71560bccdc8b, type: 3}
+  listeMusic:
+  - {fileID: 8300000, guid: 59641f2a57e882446ba9304c2b4a79e2, type: 3}
+  - {fileID: 8300000, guid: 6efdb0222afef184f93ad92c2a338d0c, type: 3}
+  - {fileID: 8300000, guid: acddf9f30eaae7a42aaf6df68a88194b, type: 3}
+  - {fileID: 8300000, guid: e2de24e3219cff8478989a609f45bbfd, type: 3}
+  - {fileID: 8300000, guid: 15dbda54ac10792408896c14c2531787, type: 3}
+  - {fileID: 8300000, guid: e7a62f3db64df684f92f249d9a4cf553, type: 3}
+  - {fileID: 8300000, guid: 37add77b7dcdd4f47961bdef9b7da52d, type: 3}
+  - {fileID: 8300000, guid: 92560e96d2f817f4281e8cca250fa40c, type: 3}
 --- !u!82 &1274771723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -267,3 +278,124 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &4160111397898933248
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &184020137201420114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac38acacd2dc8e49b55dac4279163a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeSonMortMarine:
+  - {fileID: 8300000, guid: 79f6fba111164ae42b9f170c76ea36ed, type: 3}
+  - {fileID: 8300000, guid: 7e66f6a61ee19bc40b115db19fa66682, type: 3}
+  - {fileID: 8300000, guid: 3c060d20a3a7a454dae0e95e1e9b4987, type: 3}
+  - {fileID: 8300000, guid: 5ea91526210a04a47ae47b7bd04bc68b, type: 3}
+  - {fileID: 8300000, guid: b94b16104f6a45e409455e9057a64a18, type: 3}
+  listeSonMortFlood:
+  - {fileID: 8300000, guid: 2738f3f82c98b6740a3a2426a6259ae3, type: 3}
+  - {fileID: 8300000, guid: b68c7e6ab71cf1b429a3177455937ab3, type: 3}
+  - {fileID: 8300000, guid: bf2ec36ab1c6810479a18e9d46fa7922, type: 3}
+  - {fileID: 8300000, guid: 9979088e7194cd642a634f1a7d4a7e72, type: 3}
+  - {fileID: 8300000, guid: 739c1045aa058de4a8b148cd9e2b9e07, type: 3}
+  - {fileID: 8300000, guid: ec321a73cc32f5b458bd3f851b588fee, type: 3}
