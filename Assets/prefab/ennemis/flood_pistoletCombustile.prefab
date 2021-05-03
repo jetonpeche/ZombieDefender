@@ -135,7 +135,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000009834766, y: 0.70711434, z: 0.0000013150275}
+  m_ConnectedAnchor: {x: 0.0000009983778, y: 0.70711464, z: 0.000008936971}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -369,7 +369,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12640257, y: -0.07227348, z: 0.010765961}
+  m_ConnectedAnchor: {x: 0.12637205, y: -0.07227348, z: 0.010750703}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -594,7 +594,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000010922613, y: 0.59544444, z: -0.009031773}
+  m_ConnectedAnchor: {x: -0.0000032932185, y: 0.59544444, z: -0.009031773}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1465,7 +1465,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000005410984, y: 0.34838673, z: 0.00000013783574}
+  m_ConnectedAnchor: {x: -0.0000070496462, y: 0.3484096, z: -0.00000019744039}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1574,7 +1574,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.34565303, y: 0.48511925, z: -0.0149028115}
+  m_ConnectedAnchor: {x: -0.34563014, y: 0.48511925, z: -0.0149028115}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1715,7 +1715,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.34563115, y: 0.48265797, z: 0.0049879067}
+  m_ConnectedAnchor: {x: 0.34563115, y: 0.48265702, z: 0.0049954765}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2253,6 +2253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df245a8794e2c8b4bb6a0de6e5a0e326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  estSelectionne: 0
   canvas: {fileID: 5577014341008492265}
 --- !u!114 &581809168
 MonoBehaviour:
@@ -2738,7 +2739,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000010922612, y: 0.12999983, z: -0.016082508}
+  m_ConnectedAnchor: {x: -0.0000032932262, y: 0.12999983, z: -0.01607488}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3219,7 +3220,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.126344, y: -0.07227349, z: -0.0018304612}
+  m_ConnectedAnchor: {x: -0.12637451, y: -0.07227349, z: -0.0018228318}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3359,7 +3360,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000461936, y: 0.70754886, z: 0.0000017285347}
+  m_ConnectedAnchor: {x: 0.0000004917383, y: 0.7075482, z: -0.000005878508}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3997,6 +3998,11 @@ PrefabInstance:
       objectReference: {fileID: 5440548583677935070}
     - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
         type: 3}
+      propertyPath: armeExplosif
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
+        type: 3}
       propertyPath: rigTransform
       value: 
       objectReference: {fileID: 581809173}
@@ -4004,6 +4010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: vitesseBalle
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
+        type: 3}
+      propertyPath: forceExplosion
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
         type: 3}

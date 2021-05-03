@@ -94,6 +94,11 @@ public class ZoneDectection : MonoBehaviour
         return armeActuelle;
     }
 
+    public LayerMask GetLayer()
+    {
+        return layerCibler;
+    }
+
     public void StopAttaque()
     {
         cubeAttaque.CancelInvoke("Attaquer");

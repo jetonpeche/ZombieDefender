@@ -6,6 +6,11 @@ public class Arme : MonoBehaviour
 {
     [SerializeField] private bool estDeuxiemeArme;
 
+    [Header("Arme explosive")]
+    [SerializeField] private bool armeExplosif;
+    [SerializeField] private float forceExplosion;
+
+    [Header("")]
     [SerializeField] private float cadenceTir;
     [SerializeField] private float vitesseBalle;
     [SerializeField] private float tempsRechargement;
@@ -29,6 +34,7 @@ public class Arme : MonoBehaviour
 
     [SerializeField] private ParticleSystem muzzleFlash = null;
 
+    [Header("Ragdoll")]
     [SerializeField] private RigTransform rigTransform = null;
     [SerializeField] private Rigidbody rb = null;
     [SerializeField] private Collider col = null;
@@ -51,7 +57,7 @@ public class Arme : MonoBehaviour
             muzzleFlash.Emit(1);
 
             GameObject _obj = Instantiate(projectile, canon.position, canon.rotation);
-            _obj.GetComponent<Projectile>().Initialiser(transform.position, zoneDectection.GetRadius(), tagCible, degats, personnage, vitesseBalle, dispersionTir);
+            _obj.GetComponent<Projectile>().Initialiser(transform.position, zoneDectection.GetRadius(), tagCible, degats, personnage, vitesseBalle, dispersionTir, zoneDectection.GetLayer(), armeExplosif);
             balleChargeur--;
 
             if(balleChargeur == 0)
@@ -76,6 +82,21 @@ public class Arme : MonoBehaviour
     public GameObject GetPerso()
     {
         return personnage;
+    }
+
+    public bool EstArmeExplosive()
+    {
+        return armeExplosif;
+    }
+
+    public float GetRayonExplosion()
+    {
+        return projectile.GetComponent<Projectile>().GetRayonExplosion();
+    }
+
+    public float GetForceExplosion()
+    {
+        return forceExplosion;
     }
 
     public void Recharger()

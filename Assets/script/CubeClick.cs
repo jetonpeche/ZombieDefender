@@ -2,6 +2,8 @@
 
 public class CubeClick : MonoBehaviour
 {
+    public bool estSelectionne;
+
     [SerializeField] private GameObject canvas;
 
     public void OnMouseOver()
@@ -9,7 +11,8 @@ public class CubeClick : MonoBehaviour
         if(canvas != null)
             BouttonMontrerBarVie(true);
 
-        Click();
+        if(!estSelectionne)
+            Click();
     }
 
     public void OnMouseExit()
@@ -17,7 +20,8 @@ public class CubeClick : MonoBehaviour
         if (canvas != null)
             BouttonMontrerBarVie(false);
 
-        Clack();
+        if (!estSelectionne)
+            Clack();
     }
 
     public void BouttonMontrerBarVie(bool _stat)

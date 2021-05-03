@@ -11954,6 +11954,10 @@ PrefabInstance:
       propertyPath: txtMinuteur
       value: 
       objectReference: {fileID: 468404457}
+    - target: {fileID: 1274771723, guid: ad88fcacaad39c4448ba71d296db4b71, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3387618711033941317, guid: ad88fcacaad39c4448ba71d296db4b71,
         type: 3}
       propertyPath: m_Name
@@ -12032,6 +12036,11 @@ PrefabInstance:
     - target: {fileID: 3387618711033941371, guid: ad88fcacaad39c4448ba71d296db4b71,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160111397898933248, guid: ad88fcacaad39c4448ba71d296db4b71,
+        type: 3}
+      propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

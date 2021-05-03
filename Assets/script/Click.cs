@@ -35,20 +35,24 @@ public class Click : MonoBehaviour
         // selectionner unitée(s)
         if(Input.GetMouseButtonDown(0) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerCopain))
         {
+            CubeClick _cubeClick;
+
             if(!selectionMultiple)
             {
-                if (listeUniteSelectionne.Count > 0)
+                foreach (GameObject _obj in listeUniteSelectionne)
                 {
-                    foreach  (GameObject _obj in listeUniteSelectionne)
-                    {
-                        _obj.GetComponent<CubeClick>().Clack();
-                    }
+                    _cubeClick = _obj.GetComponent<CubeClick>();
+                    _cubeClick.estSelectionne = false;
+                    _cubeClick.Clack();
                 }
-                    
+
                 listeUniteSelectionne.Clear();
             }
 
-            _hit.transform.GetComponent<CubeClick>().Click();
+            _cubeClick = _hit.transform.GetComponent<CubeClick>();
+            _cubeClick.estSelectionne = true;
+            _cubeClick.Click();
+
             listeUniteSelectionne.Add(_hit.transform.gameObject);
         }
 
@@ -66,7 +70,7 @@ public class Click : MonoBehaviour
         {
             int _index = 0;
             List<Vector3> _listOffsetDeplacement = CalculOffsetPositon();
-            
+
             foreach (GameObject _item in listeUniteSelectionne)
             {
                 _item.GetComponent<CubeDeplacement>().Deplacer(_hit.point + _listOffsetDeplacement[_index]);

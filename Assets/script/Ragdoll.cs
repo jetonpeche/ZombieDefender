@@ -36,4 +36,12 @@ public class Ragdoll : MonoBehaviour
 
         hitBox.enabled = !_stat;
     }
+
+    public void ForceExplosion(float _forceExplosion, float _radius, Vector3 _position)
+    {
+        foreach (Rigidbody _rb in listRb)
+        {
+            _rb.AddExplosionForce(_forceExplosion, _position, _radius, 1f, ForceMode.Impulse);
+        }
+    }
 }

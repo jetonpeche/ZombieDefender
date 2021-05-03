@@ -2,13 +2,18 @@
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private float rayonExplosion;
+
     private int degats;
     private string tagCible;
     private Vector3 posDepart;
     private float distance;
-    public GameObject ennemi;
+    private GameObject ennemi;
     private float vitesse;
     private float dispersionTir;
+    private LayerMask layersCible;
+
+    private bool estExplosif;
 
     private void Update()
     {
@@ -17,8 +22,10 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi, float _vitesse, float _dispersionTir)
+    public void Initialiser(Vector3 _posDepart, float _distance, string _tagCible, int _degats, GameObject _ennemi, float _vitesse, float _dispersionTir, LayerMask _layer, bool _estExplosif)
     {
+        layersCible = _layer;
+        estExplosif = _estExplosif;
         posDepart = _posDepart;
         distance = _distance;
         tagCible = _tagCible;
@@ -38,13 +45,28 @@ public class Projectile : MonoBehaviour
     {
         if (Tag.PossedeTag(tagCible, _other.gameObject))
         {
-            CubeVie _cubeVie = _other.GetComponent<CubeVie>();
+            CubeVie _cubeVie = _other.GetComponent<CubeVie>();               
 
             // ennemi
             if (_other.GetComponentInChildren<CubeAttaque>())
             {
-                if (_cubeVie.EstVivant())
-                    _cubeVie.SubirDegat(degats, ennemi);
+                if(estExplosif)
+                {
+                    Collider[] _listeEnnemi = Physics.OverlapSphere(transform.position, rayonExplosion, layersCible);
+
+                    foreach (Collider _col in _listeEnnemi)
+                    {
+                        _cubeVie = _col.gameObject.GetComponent<CubeVie>();
+
+                        if (_cubeVie.EstVivant())
+                            _cubeVie.SubirDegat(degats, ennemi);
+                    }
+                }
+                else
+                {
+                    if (_cubeVie.EstVivant())
+                        _cubeVie.SubirDegat(degats, ennemi);
+                }  
             }
             // objectif
             else
@@ -54,5 +76,10 @@ public class Projectile : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    public float GetRayonExplosion()
+    {
+        return rayonExplosion;
     }
 }

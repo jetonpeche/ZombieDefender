@@ -40,7 +40,7 @@ public class CubeVie : MonoBehaviour
         if(vie <= 0)
         {
             vie = 0;
-            Mort();
+            Mort(_cible.GetComponentInChildren<Arme>());
         }
 
         // se defendre contre IA ennemi
@@ -67,7 +67,7 @@ public class CubeVie : MonoBehaviour
         }
     }
 
-    private void Mort()
+    private void Mort(Arme _armeEnnemi)
     {
         if (estEnnemi)
         {
@@ -89,6 +89,11 @@ public class CubeVie : MonoBehaviour
             }
 
             ragdoll.ActiverRagDoll(true);
+
+            if(_armeEnnemi.EstArmeExplosive())
+            {
+                ragdoll.ForceExplosion(_armeEnnemi.GetForceExplosion(), _armeEnnemi.GetRayonExplosion(), transform.position);
+            }
 
             Destroy(gameObject, 5f);
         }
