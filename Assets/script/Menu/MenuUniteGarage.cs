@@ -2,9 +2,13 @@
 
 public class MenuUniteGarage : MonoBehaviour
 {
-    [SerializeField] private PiUIManager piUi = null; 
+    [SerializeField] private string labelUniteScorpion;
+    [SerializeField] private int prixUniteScorpion;
+
+    [Header("")]
     [SerializeField] private string nomMenu = null;
 
+    private PiUIManager piUi = null;
     private PiUI menu;
     private bool menuOuvert = false;
     private Position pos;
@@ -20,7 +24,8 @@ public class MenuUniteGarage : MonoBehaviour
     {
         // ajout des fonctions aux events du menu
         // delegate { } pour accepter les parametres dans le AddListerner()
-        menu.piData[0].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteScorpion(pos.posDepart.position, pos.posArrive.position); });
+        menu.piData[0].sliceLabel = labelUniteScorpion + " (" + prixUniteScorpion + ")";
+        menu.piData[0].onSlicePressed.AddListener(delegate { CreerUnite.instance.InstancierUniteScorpion(pos.posDepart.position, pos.posArrive.position, prixUniteScorpion); });
 
         menu.UpdatePiUI();
     }

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1274771723}
   - component: {fileID: 4160111397898933248}
   - component: {fileID: 184020137201420114}
+  - component: {fileID: 3754805118076061424}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: gameManager
@@ -194,7 +195,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -290,7 +291,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -399,3 +400,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9979088e7194cd642a634f1a7d4a7e72, type: 3}
   - {fileID: 8300000, guid: 739c1045aa058de4a8b148cd9e2b9e07, type: 3}
   - {fileID: 8300000, guid: ec321a73cc32f5b458bd3f851b588fee, type: 3}
+--- !u!114 &3754805118076061424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387618711033941317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45a6c2da83d4bf41b4c00bfb7f27d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nbGenerationRessource: 20
+  ressourceTotal: 200
+  vitesseGenerationRessource: 1
+  txtNbRessource: {fileID: 0}

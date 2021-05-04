@@ -5825,11 +5825,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pi UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 114358343945811453, guid: 146c96bb88fae814ab01a136e0625dbc,
-        type: 3}
-      propertyPath: piData.Array.data[0].angle
-      value: 188.69998
-      objectReference: {fileID: 0}
     - target: {fileID: 224313250904812496, guid: 146c96bb88fae814ab01a136e0625dbc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7949,6 +7944,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060735586}
   m_Mesh: {fileID: 4300000, guid: 3e9477af957ae2046805833aece51a1c, type: 2}
+--- !u!114 &1061562673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1061562673, guid: 146c96bb88fae814ab01a136e0625dbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 878252287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064154935
 GameObject:
   m_ObjectHideFlags: 0
@@ -11954,10 +11961,6 @@ PrefabInstance:
       propertyPath: txtMinuteur
       value: 
       objectReference: {fileID: 468404457}
-    - target: {fileID: 1274771723, guid: ad88fcacaad39c4448ba71d296db4b71, type: 3}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3387618711033941317, guid: ad88fcacaad39c4448ba71d296db4b71,
         type: 3}
       propertyPath: m_Name
@@ -12038,11 +12041,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4160111397898933248, guid: ad88fcacaad39c4448ba71d296db4b71,
+    - target: {fileID: 3754805118076061424, guid: ad88fcacaad39c4448ba71d296db4b71,
         type: 3}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: txtNbRessource
+      value: 
+      objectReference: {fileID: 1061562673}
+    - target: {fileID: 3754805118076061424, guid: ad88fcacaad39c4448ba71d296db4b71,
+        type: 3}
+      propertyPath: txtPasRessource
+      value: 
+      objectReference: {fileID: 2014232175}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad88fcacaad39c4448ba71d296db4b71, type: 3}
 --- !u!1 &1590833367
@@ -14437,6 +14445,18 @@ Transform:
   m_Father: {fileID: 591216261}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2014232175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2014232175, guid: 146c96bb88fae814ab01a136e0625dbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 878252287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2019714375
 GameObject:
   m_ObjectHideFlags: 0

@@ -594,7 +594,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5f0ac1113352b4bacec8f72a810719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piUi: {fileID: 0}
+  labelUniteMarine: Marine
+  prixUniteMarine: 70
+  labelUniteSniper: Sniper
+  prixUniteSniper: 120
+  labelUniteSpnkr: SPNKr
+  prixUniteSpnkr: 200
   nomMenu: Menu caserne
 --- !u!114 &-6451467045980245252
 MonoBehaviour:

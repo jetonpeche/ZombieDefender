@@ -547,7 +547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e966247500e3c5b40834f48eba231dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piUi: {fileID: 0}
+  labelUniteScorpion: Scorpion
+  prixUniteScorpion: 300
   nomMenu: Menu garage
 --- !u!208 &3829260034840441692
 NavMeshObstacle:

@@ -4,6 +4,13 @@ public class MenuBatiment : MonoBehaviour
 {
     public static MenuBatiment instance;
 
+    [SerializeField] private string labelNomCaserne;
+    [SerializeField] private int prixCaserne;
+
+    [SerializeField] private string labelNomGarage;
+    [SerializeField] private int prixGarage;
+
+    [Header("")]
     [SerializeField] private string nomMenu;
 
     private PiUIManager piUi;
@@ -23,8 +30,11 @@ public class MenuBatiment : MonoBehaviour
         menu = piUi.GetPiUIOf(nomMenu);
 
         // ajout des fonctions aux events du menu
-        menu.piData[0].onSlicePressed.AddListener(CreerBlueprint.instance.InstancierBPcaserne);
-        menu.piData[1].onSlicePressed.AddListener(CreerBlueprint.instance.InstancierBPgarage);
+        menu.piData[0].sliceLabel = labelNomCaserne + " (" + prixCaserne + ")";
+        menu.piData[0].onSlicePressed.AddListener(delegate { CreerBlueprint.instance.InstancierBPcaserne(prixCaserne); });
+
+        menu.piData[1].sliceLabel = labelNomGarage + " (" + prixGarage + ")";
+        menu.piData[1].onSlicePressed.AddListener(delegate { CreerBlueprint.instance.InstancierBPgarage(prixGarage); });
 
         menu.UpdatePiUI();
     }
