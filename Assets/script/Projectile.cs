@@ -3,6 +3,7 @@
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float rayonExplosion;
+    [SerializeField] private GameObject particuleExplosion;
 
     private int degats;
     private string tagCible;
@@ -73,6 +74,12 @@ public class Projectile : MonoBehaviour
             {
                 _cubeVie.SubirDegatObjectif(degats);
             }
+        }
+
+        if (estExplosif)
+        {
+            GameObject _obj = Instantiate(particuleExplosion, transform.position, particuleExplosion.transform.rotation);
+            Destroy(_obj, 4);
         }
 
         Destroy(gameObject);

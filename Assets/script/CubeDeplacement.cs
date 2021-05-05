@@ -56,9 +56,9 @@ public class CubeDeplacement : MonoBehaviour
         deplacerAporterCible = true;
     }
 
-    public void InitialPosTourelle()
+    public void BloquerTourelle()
     {
-        tournerTourelle = true;
+        tournerTourelle = false;
     }
 
     private void DeplacerAporterCible()
@@ -95,4 +95,6 @@ public class CubeDeplacement : MonoBehaviour
         if (tourelleChar.rotation == transform.rotation)
             tournerTourelle = false;
     }
+
+    
 }

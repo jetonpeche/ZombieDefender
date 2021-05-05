@@ -13,6 +13,7 @@ public class SonMort : MonoBehaviour
 
     [SerializeField] private AudioClip[] listeSonMortMarine;
     [SerializeField] private AudioClip[] listeSonMortFlood;
+    [SerializeField] private AudioClip[] listeSonMortScorpion;
 
     public void JouerSonMortMarine(AudioSource _audioSource)
     {
@@ -22,6 +23,11 @@ public class SonMort : MonoBehaviour
     public void JouerSonMortFlood(AudioSource _audioSource)
     {
         JouerSonMort(_audioSource, listeSonMortFlood);
+    }
+
+    public void JouerSonMortScorpion(AudioSource _audioSource)
+    {
+        JouerSonMort(_audioSource, listeSonMortScorpion);
     }
 
     private void JouerSonMort(AudioSource _audioSource, AudioClip[] _listeAudioClip)

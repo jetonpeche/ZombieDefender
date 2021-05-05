@@ -231,3 +231,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayonExplosion: 4
+  particuleExplosion: {fileID: 2027141935738085797, guid: 6f902b3a55c299740a114613dbf46512,
+    type: 3}

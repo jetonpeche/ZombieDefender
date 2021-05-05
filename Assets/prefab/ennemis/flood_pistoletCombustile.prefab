@@ -4014,7 +4014,7 @@ PrefabInstance:
     - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
         type: 3}
       propertyPath: forceExplosion
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4085979750399231271, guid: baf0c215d28525849a9af33a8f51e292,
         type: 3}

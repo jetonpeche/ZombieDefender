@@ -76,12 +76,20 @@ public class CubeVie : MonoBehaviour
         }
         else
         {
-            SonMort.instance.JouerSonMortMarine(audioSource);
+            if (!Tag.PossedeTag("scorpion", gameObject))
+                SonMort.instance.JouerSonMortMarine(audioSource);
+            else
+                SonMort.instance.JouerSonMortScorpion(audioSource);
+
             Inventaire.instance.ReduireUniteJoueur();
         }
-            
 
-        if(ragdoll != null)
+        GetComponentInChildren<CubeAttaque>().enabled = false;
+        GetComponentInChildren<ZoneDectection>().enabled = false;
+
+
+        // scorpion n'en a pas
+        if (ragdoll != null)
         {
             foreach (Arme _arme in listeArme)
             {
@@ -99,7 +107,11 @@ public class CubeVie : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            GetComponent<MortVehicule>().Mort();
+            GetComponent<CubeDeplacement>().BloquerTourelle();
+            transform.gameObject.layer = 0;
+
+            Destroy(gameObject, 2f);
         }
     }
 
