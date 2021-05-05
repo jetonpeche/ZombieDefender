@@ -9,6 +9,7 @@ Ctrl relaché: caché bar de vie des unités choisis
 
 Shit + click gauche selection unités multiple (une par une)
 
+1 (pas du pavé numérique): selectionner toutes les unitées
 
 CAMERA
 A: rotation cam gauche

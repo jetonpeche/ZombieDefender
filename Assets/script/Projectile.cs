@@ -2,6 +2,8 @@
 
 public class Projectile : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private float rayonExplosion;
     [SerializeField] private GameObject particuleExplosion;
 
@@ -13,8 +15,9 @@ public class Projectile : MonoBehaviour
     private float vitesse;
     private float dispersionTir;
     private LayerMask layersCible;
-
     private bool estExplosif;
+
+    #endregion
 
     private void Update()
     {
@@ -37,6 +40,12 @@ public class Projectile : MonoBehaviour
 
         GetComponent<Rigidbody>().velocity = transform.forward + DispertionTir() * vitesse;
     }
+
+    public float GetRayonExplosion()
+    {
+        return rayonExplosion;
+    }
+
     private Vector3 DispertionTir()
     {
         return (transform.forward + (transform.up * dispersionTir) + (transform.right * Random.Range(-1, 1) * dispersionTir)).normalized;
@@ -83,10 +92,5 @@ public class Projectile : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
-
-    public float GetRayonExplosion()
-    {
-        return rayonExplosion;
     }
 }

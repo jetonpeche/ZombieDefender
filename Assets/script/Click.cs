@@ -13,51 +13,101 @@ public class Click : MonoBehaviour
     }
     #endregion
 
+    #region variables
+
     [SerializeField] private LayerMask layerTerrain;
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private LayerMask layerCopain;
 
-    [SerializeField] private List<GameObject> listeUniteSelectionne = null;
+    [SerializeField] private RectTransform zoneDeSelection;
 
-    private bool selectionMultiple;
+    [SerializeField] private List<GameObject> listeUnite = new List<GameObject>();
+
+    private List<GameObject> listeUniteSelectionne = null;
+    private bool selectionMultipleMainActif, selectionMultiple;
+    private Vector2 posSourisDepart;
+
+    #endregion
+
 
     private void Start()
     {
         listeUniteSelectionne = new List<GameObject>();
+        zoneDeSelection.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        Ray rayon = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray _rayon = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit _hit;
 
+        #region Selection unité(s)
+
+        // selection multiple avec zone de selection (prit sur youtube)
+        // https://www.youtube.com/watch?v=cd7pgnw5OLA&ab_channel=Zenva
+
         // selectionner unitée(s)
-        if(Input.GetMouseButtonDown(0) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerCopain))
+        if (Input.GetMouseButtonDown(0) && Physics.Raycast(_rayon, out _hit, Mathf.Infinity, layerCopain))
         {
-            CubeClick _cubeClick;
+            if (!selectionMultipleMainActif)
+                DeSelectionnerUnite();
 
-            if(!selectionMultiple)
-            {
-                foreach (GameObject _obj in listeUniteSelectionne)
-                {
-                    _cubeClick = _obj.GetComponent<CubeClick>();
-                    _cubeClick.estSelectionne = false;
-                    _cubeClick.Clack();
-                }
-
-                listeUniteSelectionne.Clear();
-            }
-
-            _cubeClick = _hit.transform.GetComponent<CubeClick>();
-            _cubeClick.estSelectionne = true;
-            _cubeClick.Click();
-
-            listeUniteSelectionne.Add(_hit.transform.gameObject);
+            SelectionUnite(_hit.transform);
         }
 
+        // zone de selection
+        else if(Input.GetMouseButtonDown(0) && Physics.Raycast(_rayon, out _hit, Mathf.Infinity, layerTerrain))
+        {
+            DeSelectionnerUnite();
+
+            zoneDeSelection.gameObject.SetActive(true);
+            selectionMultiple = true;
+            posSourisDepart = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(0) && selectionMultiple)
+        {
+            UpdateZoneSelection(Input.mousePosition);
+        }
+
+        if (Input.GetMouseButtonUp(0) && selectionMultiple)
+        {
+            selectionMultiple = false;
+            zoneDeSelection.gameObject.SetActive(false);
+
+            // position bas gauche de la boite
+            Vector2 _min = zoneDeSelection.anchoredPosition - (zoneDeSelection.sizeDelta / 2);
+
+            // position haut droite de la boite
+            Vector2 max = zoneDeSelection.anchoredPosition + (zoneDeSelection.sizeDelta / 2);
+
+            // voir si position l'unité est dans la zone de selection
+            foreach (GameObject _unite in listeUnite)
+            {
+                // convertie la position de l'unité en position de l'ecran
+                Vector3 _posEcran = Camera.main.WorldToScreenPoint(_unite.transform.position);
+
+                // verif que l'unite est dans la zone
+                if (_posEcran.x > _min.x && _posEcran.x < max.x && _posEcran.y < max.y && _posEcran.y > _min.y)
+                {
+                    SelectionUnite(_unite.transform);
+                }
+            }
+        }
+
+        // selectionner toutes les unités (&)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            listeUniteSelectionne = listeUnite;
+        }
+
+        #endregion
+
+        #region Actions
+
         // Attaquer cible
-        else if (Input.GetMouseButtonDown(1) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerEnnemi))
+        if (Input.GetMouseButtonDown(1) && Physics.Raycast(_rayon, out _hit, Mathf.Infinity, layerEnnemi))
         {
             foreach (GameObject _item in listeUniteSelectionne)
             {
@@ -66,7 +116,7 @@ public class Click : MonoBehaviour
         }
 
         // deplacement
-        else if(Input.GetMouseButtonDown(1) && Physics.Raycast(rayon, out _hit, Mathf.Infinity, layerTerrain))
+        else if (Input.GetMouseButtonDown(1) && Physics.Raycast(_rayon, out _hit, Mathf.Infinity, layerTerrain))
         {
             int _index = 0;
             List<Vector3> _listOffsetDeplacement = CalculOffsetPositon();
@@ -78,38 +128,101 @@ public class Click : MonoBehaviour
             }
         }
 
+        #endregion
+
+        #region bar de vie
+
         // voir la bar de vie des unités selectionné
-        else if(Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            foreach (GameObject _item in listeUniteSelectionne)
-            {
-                _item.GetComponent<CubeClick>().BouttonMontrerBarVie(true);
-            }
+            BouttonMontrerBarVie(true);
         }
 
         // cacher la bar de vie
-        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            foreach (GameObject _item in listeUniteSelectionne)
-            {
-                _item.GetComponent<CubeClick>().BouttonMontrerBarVie(false);
-            }
+            BouttonMontrerBarVie(false);
         }
 
-        // selectionner plusieurs unité
+        #endregion
+
+        #region selection multiple à la main
+
+        // selectionner plusieurs unité a la main
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             selectionMultiple = true;
         }
+
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             selectionMultiple = false;
         }
+
+        #endregion
     }
+
+    #region fonctions publics
 
     public void UniteMorte(GameObject _obj)
     {
         listeUniteSelectionne.Remove(_obj);
+        listeUnite.Remove(_obj);
+    }
+
+    public void UniteCreer(GameObject _obj)
+    {
+        listeUnite.Add(_obj);
+    }
+
+    #endregion
+
+    #region fonctions privates
+
+    private void SelectionUnite(Transform _hit)
+    {
+        CubeClick _cubeClick = _hit.GetComponent<CubeClick>();
+        _cubeClick.estSelectionne = true;
+        _cubeClick.Click();
+
+        listeUniteSelectionne.Add(_hit.gameObject);
+    }
+
+    private void DeSelectionnerUnite()
+    {
+        CubeClick _cubeClick;
+
+        foreach (GameObject _obj in listeUniteSelectionne)
+        {
+            _cubeClick = _obj.GetComponent<CubeClick>();
+            _cubeClick.estSelectionne = false;
+            _cubeClick.Clack();
+        }
+
+        listeUniteSelectionne.Clear();
+    }
+
+    private void UpdateZoneSelection(Vector2 _posActuelleSouris)
+    {
+        if (!zoneDeSelection.gameObject.activeInHierarchy)
+            zoneDeSelection.gameObject.SetActive(true);
+
+        float _largeur = _posActuelleSouris.x - posSourisDepart.x;
+        float _hauteur = _posActuelleSouris.y - posSourisDepart.y;
+
+        // modifier la taille de la zone
+        zoneDeSelection.sizeDelta = new Vector2(Mathf.Abs(_largeur), Mathf.Abs(_hauteur));
+
+        // changer le point de pivot
+        zoneDeSelection.anchoredPosition = posSourisDepart + new Vector2(_largeur / 2, _hauteur / 2);
+    }
+
+    private void BouttonMontrerBarVie(bool _etat)
+    {
+        foreach (GameObject _item in listeUniteSelectionne)
+        {
+            _item.GetComponent<CubeClick>().BouttonMontrerBarVie(_etat);
+        }
     }
 
     private List<Vector3> CalculOffsetPositon()
@@ -143,7 +256,7 @@ public class Click : MonoBehaviour
                     _posX += 2;
                     _nbUniteSurLigne++;
                 }
-                
+
 
                 if (_nbUniteSurLigne == 2)
                 {
@@ -166,4 +279,6 @@ public class Click : MonoBehaviour
             return _list;
         }
     }
+
+    #endregion
 }

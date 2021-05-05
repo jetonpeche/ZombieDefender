@@ -63,7 +63,12 @@ MonoBehaviour:
   layerCopain:
     serializedVersion: 2
     m_Bits: 1024
-  listeUniteSelectionne: []
+  zoneDeSelection: {fileID: 0}
+  listeUnite:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3387618711033941368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce397f1e4e66d744893b6554a31d47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbUniteFaireSpawn: 10
+  nbUniteFaireSpawn: 15
   txtNbUniteJoueur: {fileID: 0}
   txtNbUniteEnnemi: {fileID: 0}
   txtNbManche: {fileID: 0}
@@ -195,7 +200,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -291,7 +296,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -400,6 +405,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9979088e7194cd642a634f1a7d4a7e72, type: 3}
   - {fileID: 8300000, guid: 739c1045aa058de4a8b148cd9e2b9e07, type: 3}
   - {fileID: 8300000, guid: ec321a73cc32f5b458bd3f851b588fee, type: 3}
+  listeSonMortScorpion:
+  - {fileID: 8300000, guid: 4e1489a135c39ba4a98c77b74f42f0f1, type: 3}
 --- !u!114 &3754805118076061424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbGenerationRessource: 20
-  ressourceTotal: 200
+  ressourceTotal: 1000
   vitesseGenerationRessource: 1
   txtNbRessource: {fileID: 0}
+  txtPasRessource: {fileID: 0}

@@ -47,6 +47,7 @@ public class CreerUnite : MonoBehaviour
                 _obj.GetComponent<CubeDeplacement>().Deplacer(_posArrive);
 
                 Inventaire.instance.AjouterUniteJoueur();
+                Click.instance.UniteCreer(_obj);
             }
         }
     }

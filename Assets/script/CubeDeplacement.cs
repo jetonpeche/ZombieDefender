@@ -4,6 +4,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CubeDeplacement : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private CubeAttaque cubeAttaque = null;
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private Animator anim = null;
@@ -15,6 +17,8 @@ public class CubeDeplacement : MonoBehaviour
     private float porter;
     private Arme[] armes;
     private bool deplacerAporterCible, tournerTourelle;
+
+    #endregion
 
     private void Awake()
     {
@@ -32,6 +36,8 @@ public class CubeDeplacement : MonoBehaviour
         if(tournerTourelle)
             TournerTourelle();
     }
+
+    #region fonctions publics
 
     public void Deplacer(Vector3 _hit)
     {
@@ -60,6 +66,8 @@ public class CubeDeplacement : MonoBehaviour
     {
         tournerTourelle = false;
     }
+
+    #endregion
 
     private void DeplacerAporterCible()
     {
@@ -95,6 +103,4 @@ public class CubeDeplacement : MonoBehaviour
         if (tourelleChar.rotation == transform.rotation)
             tournerTourelle = false;
     }
-
-    
 }

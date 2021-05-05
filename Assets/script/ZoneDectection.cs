@@ -2,6 +2,8 @@
 
 public class ZoneDectection : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private CubeAttaque cubeAttaque = null;
     [SerializeField] private Arme[] armeActuelle = null;
     [SerializeField] private ArmeViserRepos armeViserRepos = null;
@@ -16,6 +18,8 @@ public class ZoneDectection : MonoBehaviour
     private CubeDeplacement cubeDeplacement = null;
     private LayerMask layerCibler;
 
+    #endregion
+
     private void Start()
     {
         layerCibler = cubeAttaque.GetLayerCible();
@@ -26,6 +30,8 @@ public class ZoneDectection : MonoBehaviour
         BouttonActiverCibleAuto(true);
     }
 
+    #region fonctions publics
+
     public void BouttonActiverCibleAuto(bool _state)
     {
         if (_state)
@@ -33,6 +39,28 @@ public class ZoneDectection : MonoBehaviour
         else
             CancelInvoke("Detection");
     }
+
+    public float GetRadius()
+    {
+        return radius;
+    }
+
+    public Arme[] GetArmes()
+    {
+        return armeActuelle;
+    }
+
+    public LayerMask GetLayer()
+    {
+        return layerCibler;
+    }
+
+    public void StopAttaque()
+    {
+        cubeAttaque.CancelInvoke("Attaquer");
+    }
+
+    #endregion
 
     // Detection automatique et declanche attaque
     private void Detection()
@@ -42,7 +70,7 @@ public class ZoneDectection : MonoBehaviour
         // ennemis a porter
         if (_tabCol.Length > 0)
         {
-            if(armeViserRepos != null)
+            if (armeViserRepos != null)
                 armeViserRepos.Viser();
 
             // evite de changer de cible quand une nouvelle est a porte
@@ -80,28 +108,8 @@ public class ZoneDectection : MonoBehaviour
 
             // script sur ennemi
             if (estEnnemi)
-                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();                        
+                transform.parent.GetComponent<CubeDeplacementEnnemi>().DeplacerToObjectif();
         }
-    }
-
-    public float GetRadius()
-    {
-        return radius;
-    }
-
-    public Arme[] GetArmes()
-    {
-        return armeActuelle;
-    }
-
-    public LayerMask GetLayer()
-    {
-        return layerCibler;
-    }
-
-    public void StopAttaque()
-    {
-        cubeAttaque.CancelInvoke("Attaquer");
     }
 
     private void OnDrawGizmosSelected()

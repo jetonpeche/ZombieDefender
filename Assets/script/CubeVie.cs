@@ -2,6 +2,8 @@
 
 public class CubeVie : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private Ragdoll ragdoll;
     [SerializeField] private Arme[] listeArme;
     [SerializeField] private bool estEnnemi;
@@ -22,10 +24,14 @@ public class CubeVie : MonoBehaviour
 
     private int vie;
 
+    #endregion
+
     void Start()
     {
         vie = cubeBarVie.GetVie();
     }
+
+    #region fonctions publics
 
     public bool EstVivant()
     {
@@ -67,6 +73,10 @@ public class CubeVie : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region fonctions privates
+
     private void Mort(Arme _armeEnnemi)
     {
         if (estEnnemi)
@@ -81,12 +91,14 @@ public class CubeVie : MonoBehaviour
             else
                 SonMort.instance.JouerSonMortScorpion(audioSource);
 
+            Click.instance.UniteMorte(gameObject);
             Inventaire.instance.ReduireUniteJoueur();
+
+            GetComponent<CubeClick>().Clack();
         }
 
         GetComponentInChildren<CubeAttaque>().enabled = false;
         GetComponentInChildren<ZoneDectection>().enabled = false;
-
 
         // scorpion n'en a pas
         if (ragdoll != null)
@@ -132,4 +144,6 @@ public class CubeVie : MonoBehaviour
 
         return _degats;
     }
+
+    #endregion
 }

@@ -4,6 +4,8 @@ using UnityEngine.Animations.Rigging;
 
 public class Arme : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private bool estDeuxiemeArme;
 
     [Header("Arme explosive")]
@@ -42,10 +44,14 @@ public class Arme : MonoBehaviour
     private bool recharge;
     private int tempoBalleChargeur;
 
+    #endregion
+
     private void Start()
     {
         tempoBalleChargeur = balleChargeur;
     }
+
+    #region fonctions publics
 
     public void Tirer()
     {
@@ -116,6 +122,8 @@ public class Arme : MonoBehaviour
 
         Destroy(rigTransform);
     }
+
+    #endregion
 
     private IEnumerator RechargerCoroutine()
     {

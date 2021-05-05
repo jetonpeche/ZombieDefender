@@ -12,9 +12,7 @@ public class MenuPause : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.F1))
-        {
             BouttonMenuPause();
-        }
     }
 
     public void Reprendre()

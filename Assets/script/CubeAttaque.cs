@@ -2,13 +2,17 @@
 
 public class CubeAttaque : MonoBehaviour
 {
+    #region variables
+
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private Transform persoPos;
     [SerializeField] private Arme[] armeActuelle;
 
-    public Transform cible;
+    private Transform cible;
     private float porter;
+
+    #endregion
 
     private void Start()
     {
@@ -21,6 +25,8 @@ public class CubeAttaque : MonoBehaviour
         if(cible != null)
             persoPos.LookAt(cible);
     }
+
+    #region fonctions publics
 
     public void Attaquer()
     {
@@ -65,6 +71,8 @@ public class CubeAttaque : MonoBehaviour
     {
         return cible;
     }
+
+    #endregion
 
     private void OnDrawGizmosSelected()
     {
