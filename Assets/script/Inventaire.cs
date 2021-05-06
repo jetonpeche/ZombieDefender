@@ -12,6 +12,8 @@ public class Inventaire : MonoBehaviour
     }
     #endregion
 
+    #region variables
+
     [SerializeField] private int nbUniteFaireSpawn = 10;
 
     [SerializeField] private Text txtNbUniteJoueur = null;
@@ -29,7 +31,9 @@ public class Inventaire : MonoBehaviour
     private int nbUniteEnnemiSpawner = 0;
     private int nbUniteTuer = 0;
 
-    private int manche = 1;
+    private int manche = 0;
+
+    #endregion
 
     private void Start()
     {

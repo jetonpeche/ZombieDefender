@@ -22,6 +22,7 @@ public class MenuGameOver : MonoBehaviour
 
     public void Rejouer()
     {
+        menuGameOver.SetActive(false);
         Menu.Jouer();
     }
 

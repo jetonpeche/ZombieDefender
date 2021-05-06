@@ -15,7 +15,6 @@ public class Minuteur : MonoBehaviour
     [SerializeField] private GameObject minuteur = null;
     [SerializeField] private Text txtMinuteur = null;
 
-    
     [SerializeField] [Min(1)] private float tempsEntreDeuxVague = 30;
 
     private float tempsEntreDeuxVagueClone;
@@ -24,15 +23,15 @@ public class Minuteur : MonoBehaviour
     private void Start()
     {
         tempsEntreDeuxVagueClone = tempsEntreDeuxVague;
+
+        DemarerMinuteur();
     }
 
     private void Update()
     {
         // passer la pause
         if(Input.GetKeyDown(KeyCode.F3) && pauseEntreDeuxVague)
-        {
             FinPause();
-        }
 
         if (pauseEntreDeuxVague)
         {
@@ -40,9 +39,7 @@ public class Minuteur : MonoBehaviour
             txtMinuteur.text = tempsEntreDeuxVague.ToString("00:00");
 
             if (tempsEntreDeuxVague <= 0)
-            {
                 FinPause();
-            }
         }
         else
         {
@@ -54,6 +51,11 @@ public class Minuteur : MonoBehaviour
     {
         pauseEntreDeuxVague = true;
         minuteur.SetActive(true);
+    }
+
+    public bool GetPauseEntreDeuxVague()
+    {
+        return pauseEntreDeuxVague;
     }
 
     private void FinPause()

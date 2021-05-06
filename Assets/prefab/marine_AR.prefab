@@ -50,7 +50,6 @@ MonoBehaviour:
   persoPos: {fileID: 3816175387163074950}
   armeActuelle:
   - {fileID: 486440914}
-  cible: {fileID: 0}
 --- !u!1 &1427993187
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +346,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000027213246, y: 0.39370924, z: -0.00000020861626}
+  m_ConnectedAnchor: {x: -0.00000007543713, y: 0.3937317, z: 0.000000044703484}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1121,7 +1120,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.13281806, y: -0.076033115, z: 0.009767607}
+  m_ConnectedAnchor: {x: -0.13281198, y: -0.07603311, z: 0.009765462}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1230,7 +1229,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000018404098, y: 0.5221776, z: -0.0000030710362}
+  m_ConnectedAnchor: {x: -0.000000049360096, y: 0.5221778, z: 0.00000004377216}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1662,7 +1661,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000068420195, y: 0.13674828, z: -0.007871548}
+  m_ConnectedAnchor: {x: -0.00000003122841, y: 0.13674828, z: -0.007868448}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2010,7 +2009,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.22253487, y: 0.44937366, z: -0.0051881038}
+  m_ConnectedAnchor: {x: 0.22256169, y: 0.44937378, z: -0.0051895287}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2885,6 +2884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estDeuxiemeArme: 0
+  armeExplosif: 0
+  forceExplosion: 0
   cadenceTir: 0.1
   vitesseBalle: 20
   tempsRechargement: 2
@@ -3357,6 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df245a8794e2c8b4bb6a0de6e5a0e326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  estSelectionne: 0
   canvas: {fileID: 730804918412619165}
 --- !u!114 &1633114833
 MonoBehaviour:
@@ -3676,7 +3678,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000012228265, y: 0.39371106, z: 0.00000017881393}
+  m_ConnectedAnchor: {x: -0.00000002514571, y: 0.3937167, z: 0.000000029802322}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -3785,7 +3787,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.22253348, y: 0.44942975, z: -0.006147774}
+  m_ConnectedAnchor: {x: -0.22256197, y: 0.44942957, z: -0.006145388}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -4164,7 +4166,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000068428926, y: 0.6076195, z: 0.018429516}
+  m_ConnectedAnchor: {x: -0.000000030966476, y: 0.60761964, z: 0.018427847}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4488,7 +4490,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.13280734, y: -0.076033026, z: 0.009499854}
+  m_ConnectedAnchor: {x: 0.132812, y: -0.07603301, z: 0.009502954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4659,7 +4661,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00001874147, y: 0.52189887, z: -0.00000071013346}
+  m_ConnectedAnchor: {x: 0.000000026077032, y: 0.5218989, z: 0.000000019092113}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -5175,26 +5177,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3816175387163074950}
     m_Modifications:
-    - target: {fileID: 730804918881230458, guid: cf822ab02a6737549b57570b6521c26e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 730804918881230458, guid: cf822ab02a6737549b57570b6521c26e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 730804920130920850, guid: cf822ab02a6737549b57570b6521c26e,
-        type: 3}
-      propertyPath: m_Value
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 730804920130920850, guid: cf822ab02a6737549b57570b6521c26e,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5233,12 +5215,12 @@ PrefabInstance:
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 279.06686
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 114.975586
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
@@ -5278,12 +5260,12 @@ PrefabInstance:
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.03
+      value: -0.0517
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.92
+      value: 2.9945
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}

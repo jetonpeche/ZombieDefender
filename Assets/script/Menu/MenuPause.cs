@@ -3,6 +3,7 @@
 public class MenuPause : MonoBehaviour
 {
     [SerializeField] GameObject menuPause = null;
+    [SerializeField] GameObject controle = null;
 
     private void Start()
     {
@@ -18,6 +19,11 @@ public class MenuPause : MonoBehaviour
     public void Reprendre()
     {
         BouttonMenuPause();
+    }
+
+    public void VoirCacherControle(bool _etat)
+    {
+        Menu.VoirCacherControle(controle, _etat);
     }
 
     public void MenuPrincipal()

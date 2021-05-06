@@ -23,7 +23,7 @@ public class Click : MonoBehaviour
 
     [SerializeField] private List<GameObject> listeUnite = new List<GameObject>();
 
-    private List<GameObject> listeUniteSelectionne = null;
+    public List<GameObject> listeUniteSelectionne = null;
     private bool selectionMultipleMainActif, selectionMultiple;
     private Vector2 posSourisDepart;
 
@@ -33,6 +33,7 @@ public class Click : MonoBehaviour
     private void Start()
     {
         listeUniteSelectionne = new List<GameObject>();
+
         zoneDeSelection.gameObject.SetActive(false);
     }
 
@@ -99,7 +100,12 @@ public class Click : MonoBehaviour
         // selectionner toutes les unités (&)
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            listeUniteSelectionne = listeUnite;
+            DeSelectionnerUnite();
+
+            foreach (var item in listeUnite)
+            {
+                listeUniteSelectionne.Add(item);
+            }
         }
 
         #endregion

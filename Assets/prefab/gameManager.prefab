@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  listeUniteSelectionne: []
 --- !u!114 &3387618711033941368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +88,7 @@ MonoBehaviour:
   txtNbManche: {fileID: 0}
   txtNbEnnemisTuer: {fileID: 0}
   nbUniteMaxJoueur: 10
-  nbUniteMaxEnnemi: 10
+  nbUniteMaxEnnemi: 15
 --- !u!114 &6022429014065653201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPause: {fileID: 0}
+  controle: {fileID: 0}
 --- !u!114 &185083952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minuteur: {fileID: 0}
   txtMinuteur: {fileID: 0}
-  tempsEntreDeuxVague: 5
+  tempsEntreDeuxVague: 30
 --- !u!114 &1274771724
 MonoBehaviour:
   m_ObjectHideFlags: 0

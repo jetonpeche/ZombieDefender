@@ -200,7 +200,6 @@ MonoBehaviour:
   persoPos: {fileID: 3115032842153856711}
   armeActuelle:
   - {fileID: 4889623311576168298}
-  cible: {fileID: 0}
 --- !u!1 &1172775958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7117350494484251721}
-  maxVie: 200
+  maxVie: 250
   canvas: {fileID: 7117350494484251716}
 --- !u!65 &8838960787304158195
 BoxCollider:
@@ -3057,7 +3056,22 @@ PrefabInstance:
     - target: {fileID: 730804919691002043, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 435.60333
+      objectReference: {fileID: 0}
+    - target: {fileID: 730804919691002043, guid: cf822ab02a6737549b57570b6521c26e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 66.32291
+      objectReference: {fileID: 0}
+    - target: {fileID: 730804919691002043, guid: cf822ab02a6737549b57570b6521c26e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730804919691002043, guid: cf822ab02a6737549b57570b6521c26e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920851, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
@@ -3102,12 +3116,12 @@ PrefabInstance:
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 435.60434
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 114.975586
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
@@ -3147,12 +3161,12 @@ PrefabInstance:
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.02
+      value: -0.093
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.74
+      value: 2.994
       objectReference: {fileID: 0}
     - target: {fileID: 730804920130920862, guid: cf822ab02a6737549b57570b6521c26e,
         type: 3}

@@ -8,6 +8,9 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if (Minuteur.instance.GetPauseEntreDeuxVague())
+            return;
+
         if(!Inventaire.instance.NombreUniteMaxEnnemiAtteint() && !Inventaire.instance.NombreEnnemisSpawnAtteint())
         {
             // spawn sur le navMesh quand il a trouve un espace sur celui ci  
@@ -27,7 +30,7 @@ public class Spawner : MonoBehaviour
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
-        // cherche une place dispo sur le navMesh
+        // cherche une place dispo sur le navMesh sinon ne faut pas spawner
         for (int i = 0; i < 30; i++)
         {
             Vector3 _randomPoint = center + Random.insideUnitSphere * range;

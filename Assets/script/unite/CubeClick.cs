@@ -2,7 +2,7 @@
 
 public class CubeClick : MonoBehaviour
 {
-    public bool estSelectionne;
+    [HideInInspector] public bool estSelectionne;
 
     [SerializeField] private GameObject canvas;
 

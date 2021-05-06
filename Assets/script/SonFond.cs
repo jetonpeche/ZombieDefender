@@ -21,8 +21,6 @@ public class SonFond : MonoBehaviour
     private void Start()
     {
         listeAudioSource = GetComponents<AudioSource>();
-
-        JouerSonHorde();
     }
 
     private void Update()
