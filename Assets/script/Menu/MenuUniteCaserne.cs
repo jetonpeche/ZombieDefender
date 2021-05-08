@@ -12,7 +12,7 @@ public class MenuUniteCaserne : MonoBehaviour
     [SerializeField] private int prixUniteSpnkr;
 
     [Header("")]
-    [SerializeField] private string nomMenu = null;
+    [SerializeField] private string nomMenu;
 
     private PiUIManager piUi = null;
     private PiUI menu;

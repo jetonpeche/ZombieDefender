@@ -23,9 +23,11 @@ public class Click : MonoBehaviour
 
     [SerializeField] private List<GameObject> listeUnite = new List<GameObject>();
 
-    public List<GameObject> listeUniteSelectionne = null;
+    private List<GameObject> listeUniteSelectionne = null;
     private bool selectionMultipleMainActif, selectionMultiple;
     private Vector2 posSourisDepart;
+
+    private bool sonJouer;
 
     #endregion
 
@@ -54,7 +56,7 @@ public class Click : MonoBehaviour
             if (!selectionMultipleMainActif)
                 DeSelectionnerUnite();
 
-            SelectionUnite(_hit.transform);
+            SelectionUnite(_hit.transform, false);
         }
 
         // zone de selection
@@ -92,9 +94,11 @@ public class Click : MonoBehaviour
                 // verif que l'unite est dans la zone
                 if (_posEcran.x > _min.x && _posEcran.x < max.x && _posEcran.y < max.y && _posEcran.y > _min.y)
                 {
-                    SelectionUnite(_unite.transform);
+                    SelectionUnite(_unite.transform, true);
                 }
             }
+
+            sonJouer = false;
         }
 
         // selectionner toutes les unités (&)
@@ -129,9 +133,21 @@ public class Click : MonoBehaviour
 
             foreach (GameObject _item in listeUniteSelectionne)
             {
+                if(listeUniteSelectionne.Count > 1 && !sonJouer)
+                {
+                    SonUnite.instance.JouerSonUniteDeplacement(_item);
+                    sonJouer = true;
+                }
+                else if(listeUniteSelectionne.Count == 1)
+                {
+                    SonUnite.instance.JouerSonUniteDeplacement(_item);
+                }
+
                 _item.GetComponent<CubeDeplacement>().Deplacer(_hit.point + _listOffsetDeplacement[_index]);
                 _index = (_index + 1) % _listOffsetDeplacement.Count;
             }
+
+            sonJouer = false;
         }
 
         #endregion
@@ -185,8 +201,18 @@ public class Click : MonoBehaviour
 
     #region fonctions privates
 
-    private void SelectionUnite(Transform _hit)
+    private void SelectionUnite(Transform _hit, bool _selectionGroupe)
     {
+        if(!_selectionGroupe)
+        {
+            SonUnite.instance.JouerSonUniteSelection(_hit.gameObject);
+        }
+        else if(_selectionGroupe && !sonJouer)
+        {
+            SonUnite.instance.JouerSonUniteSelection(_hit.gameObject);
+            sonJouer = true;
+        }
+
         CubeClick _cubeClick = _hit.GetComponent<CubeClick>();
         _cubeClick.estSelectionne = true;
         _cubeClick.Click();

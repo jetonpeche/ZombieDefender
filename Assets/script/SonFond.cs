@@ -15,13 +15,8 @@ public class SonFond : MonoBehaviour
     [SerializeField] private AudioClip[] listeSonFloodHord = null;
     [SerializeField] private AudioClip[] listeMusic = null;
 
-    private AudioSource[] listeAudioSource;
+    [SerializeField] private AudioSource[] listeAudioSource;
     private int indexMusic = 0;
-
-    private void Start()
-    {
-        listeAudioSource = GetComponents<AudioSource>();
-    }
 
     private void Update()
     {

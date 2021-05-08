@@ -26,7 +26,7 @@ public class CreerBlueprint : MonoBehaviour
 
     private void InstancierBP(GameObject _obj, int _prix)
     {
-        if(Ressource.instance.UniteEstPayer(_prix))
+        if (Ressource.instance.UniteEstPayer(_prix))
         {
             Instantiate(_obj);
             MenuBatiment.instance.BouttonMenu();

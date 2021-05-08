@@ -30,7 +30,7 @@ public class Blueprint : MonoBehaviour
             // desactive le boutton du menu du batiment
             foreach (PiUI.PiData item in piUI.piData)
             {
-                if(item.sliceLabel == prefab.name)
+                if (item.sliceLabel.StartsWith(prefab.name))
                 {
                     item.isInteractable = false;
                     item.SetValues(item);

@@ -6,7 +6,7 @@ public class MenuUniteGarage : MonoBehaviour
     [SerializeField] private int prixUniteScorpion;
 
     [Header("")]
-    [SerializeField] private string nomMenu = null;
+    [SerializeField] private string nomMenu;
 
     private PiUIManager piUi = null;
     private PiUI menu;
