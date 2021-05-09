@@ -81,15 +81,18 @@ public class CubeVie : MonoBehaviour
     {
         if (estEnnemi)
         {
-            SonMort.instance.JouerSonMortFlood(audioSource);
+            if(!GetComponent<MortVehicule>())    
+                SonMort.instance.JouerSonMortFlood(audioSource);
+
             Inventaire.instance.ReduireUniteEnnemi();
         }
         else
         {
             if (!Tag.PossedeTag("scorpion", gameObject))
+            {
+                GetComponent<CubeDeplacement>().BloquerTourelle();
                 SonMort.instance.JouerSonMortMarine(audioSource);
-            else
-                SonMort.instance.JouerSonMortScorpion(audioSource);
+            }
 
             Click.instance.UniteMorte(gameObject);
             Inventaire.instance.ReduireUniteJoueur();
@@ -97,10 +100,10 @@ public class CubeVie : MonoBehaviour
             GetComponent<CubeClick>().Clack();
         }
 
-        GetComponentInChildren<CubeAttaque>().enabled = false;
-        GetComponentInChildren<ZoneDectection>().enabled = false;
+        Destroy(GetComponentInChildren<CubeAttaque>());
+        Destroy(GetComponentInChildren<ZoneDectection>());   
 
-        // scorpion n'en a pas
+        // vehicule n'en a pas
         if (ragdoll != null)
         {
             foreach (Arme _arme in listeArme)
@@ -120,7 +123,6 @@ public class CubeVie : MonoBehaviour
         else
         {
             GetComponent<MortVehicule>().Mort();
-            GetComponent<CubeDeplacement>().BloquerTourelle();
             transform.gameObject.layer = 0;
 
             Destroy(gameObject, 2f);

@@ -7,8 +7,8 @@ public class CubeAttaque : MonoBehaviour
     [SerializeField] private LayerMask layerEnnemi;
     [SerializeField] private ZoneDectection zoneDectection = null;
     [SerializeField] private Transform persoPos;
-    [SerializeField] private Arme[] armeActuelle;
 
+    private Arme[] armeActuelle;
     private Transform cible;
     private float porter;
 

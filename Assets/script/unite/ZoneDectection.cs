@@ -83,10 +83,7 @@ public class ZoneDectection : MonoBehaviour
 
             if (!cubeAttaque.IsInvoking("Attaquer"))
             {
-                foreach (Arme arme in armeActuelle)
-                {
-                    cubeAttaque.InvokeRepeating("Attaquer", 0f, arme.GetCadenceTir());
-                }
+                cubeAttaque.InvokeRepeating("Attaquer", 0f, armeActuelle[0].GetCadenceTir());
             }
 
             tournerTourelle = true;

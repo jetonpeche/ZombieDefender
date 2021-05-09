@@ -115,7 +115,6 @@ public class Arme : MonoBehaviour
     {
         rb.useGravity = true;
         col.enabled = true;
-        zoneDectection.BouttonActiverCibleAuto(false);
 
         if(!estDeuxiemeArme)
             zoneDectection.StopAttaque();

@@ -1911,8 +1911,6 @@ MonoBehaviour:
     m_Bits: 512
   zoneDectection: {fileID: 8243454629231591521}
   persoPos: {fileID: 8497196499848746245}
-  armeActuelle:
-  - {fileID: 76266745}
 --- !u!1 &4691022903071157709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,7 +5075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1716339944354798435}
-  maxVie: 100
+  maxVie: 120
   canvas: {fileID: 1716339944354798446}
 --- !u!114 &130473062279026639
 MonoBehaviour:

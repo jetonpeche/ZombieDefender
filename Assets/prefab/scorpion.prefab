@@ -198,8 +198,6 @@ MonoBehaviour:
     m_Bits: 512
   zoneDectection: {fileID: 78352931}
   persoPos: {fileID: 3115032842153856711}
-  armeActuelle:
-  - {fileID: 4889623311576168298}
 --- !u!1 &1172775958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,6 +2130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 198917021224227666}
+  audioSource: {fileID: 5291141612683949592}
+  sonMort: {fileID: 8300000, guid: 4e1489a135c39ba4a98c77b74f42f0f1, type: 3}
 --- !u!1 &7560652969769316154
 GameObject:
   m_ObjectHideFlags: 0

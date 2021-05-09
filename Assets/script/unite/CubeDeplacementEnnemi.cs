@@ -4,7 +4,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CubeDeplacementEnnemi : MonoBehaviour
 {
-    [SerializeField] private string tagObjectif;
+    [SerializeField] private string tagObjectif = "copain,objectif";
 
     private NavMeshAgent agent = null;
     private Transform objectif;
@@ -13,19 +13,19 @@ public class CubeDeplacementEnnemi : MonoBehaviour
     private void Awake()
     {
         objectif = GameObject.FindWithTag(tagObjectif).transform;
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
-
         DeplacerToObjectif();
     }
 
     private void Update()
     {
-        anim.SetFloat("vitesse", agent.velocity.magnitude);
+        if(anim != null)
+            anim.SetFloat("vitesse", agent.velocity.magnitude);
 
         if(!Objectif.objectifDetruit)
             agent.SetDestination(objectif.position);
